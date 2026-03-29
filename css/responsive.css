@@ -1,0 +1,60 @@
+/* ============================================================
+   RESPONSIVE — Media Queries
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .container { padding: 0 32px; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-images { height: 400px; }
+  .restaurant-grid { grid-template-columns: 1fr; }
+  .restaurant-images { height: 400px; }
+  .location-grid { grid-template-columns: 1fr; gap: 48px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 20px 24px; }
+  nav.scrolled { padding: 14px 24px; }
+
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  section { padding: 80px 0; }
+  .container { padding: 0 24px; }
+
+  .rooms-grid { grid-template-columns: 1fr 1fr; }
+  .rooms-grid .room-card:first-child {
+    grid-column: span 2;
+    grid-row: span 1;
+    aspect-ratio: 16/9;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  .gallery-item {
+    aspect-ratio: 1;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  .features-bar .container { grid-template-columns: 1fr 1fr; }
+  .feature-item:nth-child(2n) { border-right: none; }
+  .feature-item:nth-child(1),
+  .feature-item:nth-child(2) {
+    border-bottom: 1px solid rgba(184, 150, 110, 0.12);
+  }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .checkin-bar { grid-template-columns: 1fr; }
+  .rooms-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .rooms-grid { grid-template-columns: 1fr; }
+  .rooms-grid .room-card:first-child { grid-column: auto; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+}

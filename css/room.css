@@ -1,0 +1,388 @@
+/* ============================================================
+   ROOM.CSS — Individual Room Page Styles
+   ============================================================ */
+
+/* ── Room Hero ── */
+.room-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.room-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.06);
+  transition: transform 10s ease;
+}
+
+.room-hero.loaded .room-hero-bg {
+  transform: scale(1);
+}
+
+.room-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(28, 26, 23, 0.25) 0%,
+    rgba(28, 26, 23, 0.15) 35%,
+    rgba(28, 26, 23, 0.75) 75%,
+    rgba(28, 26, 23, 0.92) 100%
+  );
+}
+
+.room-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px 80px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.room-hero-eyebrow {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  display: block;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease 0.3s forwards;
+}
+
+.room-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease 0.5s forwards;
+}
+
+.room-hero-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.room-hero-chips {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease 0.8s forwards;
+}
+
+.room-chip {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, 0.75);
+  border: 1px solid rgba(184, 150, 110, 0.4);
+  padding: 8px 18px;
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+  background: rgba(28, 26, 23, 0.3);
+}
+
+/* ── Room Info Bar ── */
+.room-info-bar {
+  background: var(--dark-mid);
+  border-bottom: 1px solid rgba(184, 150, 110, 0.12);
+  padding: 0;
+}
+
+.room-info-bar .container {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.room-info-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 40px;
+  border-right: 1px solid rgba(184, 150, 110, 0.12);
+  text-align: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.room-info-pill:last-child {
+  border-right: none;
+}
+
+.room-info-label {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+}
+
+.room-info-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+}
+
+/* ── Room Body ── */
+.room-body {
+  background: var(--dark);
+  padding: 96px 0;
+}
+
+.room-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ── Room Description ── */
+.room-description h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.room-description p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.9;
+  margin-bottom: 0;
+}
+
+.room-description .divider {
+  margin: 28px 0;
+}
+
+/* ── Amenities ── */
+.room-amenities h3 {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.amenity-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 12px;
+  background: var(--dark-mid);
+  border: 1px solid rgba(184, 150, 110, 0.08);
+  transition: all 0.3s ease;
+  gap: 10px;
+}
+
+.amenity-item:hover {
+  border-color: rgba(184, 150, 110, 0.3);
+  background: rgba(184, 150, 110, 0.06);
+}
+
+.amenity-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.amenity-label {
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ── Room CTA Banner ── */
+.room-cta {
+  background: linear-gradient(135deg, var(--gold) 0%, #a07850 100%);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.room-cta h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 300;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.room-cta p {
+  font-size: 13px;
+  color: rgba(28, 26, 23, 0.7);
+  letter-spacing: 1px;
+  margin-bottom: 36px;
+}
+
+/* ── Back Link ── */
+.back-link-bar {
+  background: var(--dark-mid);
+  border-top: 1px solid rgba(184, 150, 110, 0.1);
+  padding: 24px 0;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.back-link::before {
+  content: '←';
+  color: var(--gold);
+  transition: transform 0.3s;
+}
+
+.back-link:hover {
+  color: var(--gold);
+}
+
+.back-link:hover::before {
+  transform: translateX(-4px);
+}
+
+/* ── WhatsApp Float ── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 900;
+  width: 56px;
+  height: 56px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  background: #1ebe5d;
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.whatsapp-float svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .room-body-grid {
+    gap: 56px;
+  }
+
+  .room-info-pill {
+    padding: 24px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .room-hero-content {
+    padding-bottom: 64px;
+  }
+
+  .room-info-bar .container {
+    flex-wrap: wrap;
+  }
+
+  .room-info-pill {
+    flex: 1 1 calc(50% - 1px);
+    border-right: none;
+    border-bottom: 1px solid rgba(184, 150, 110, 0.12);
+  }
+
+  .room-info-pill:last-child {
+    border-bottom: none;
+  }
+
+  .room-body {
+    padding: 72px 0;
+  }
+
+  .room-body-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .whatsapp-float {
+    bottom: 24px;
+    right: 24px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsapp-float svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .room-hero-chips {
+    gap: 8px;
+  }
+
+  .room-chip {
+    font-size: 9px;
+    padding: 6px 14px;
+  }
+
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .room-info-pill {
+    flex: 1 1 100%;
+  }
+}

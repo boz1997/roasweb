@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.roashotel.com)",
+      "Bash(grep -c \"whatsapp-float\" /Users/berk/Desktop/roasweb/odalar/*.html)",
+      "Bash(grep -l \"room-cta\" /Users/berk/Desktop/roasweb/odalar/*.html)",
+      "Bash(grep -l \"room-info-bar\" /Users/berk/Desktop/roasweb/odalar/*.html)"
+    ]
+  }
+}
