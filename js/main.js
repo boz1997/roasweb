@@ -49,14 +49,11 @@ revealEls.forEach((el) => revealObserver.observe(el));
 const galleryImages = [
   'https://www.roashotel.com/wp-content/uploads/2021/05/1622397736_Original-scaled.jpeg',
   'https://www.roashotel.com/wp-content/uploads/2021/05/4C7FBBA3-4141-4A35-B2DD-123DB5C10E82-scaled.jpeg',
-  'https://www.roashotel.com/wp-content/uploads/2022/04/1B7B8E99-E33E-4F17-A183-6D88531696BD-scaled.jpeg',
+  'https://www.roashotel.com/wp-content/uploads/2021/05/1622400252_Original-scaled.jpeg',
   'https://www.roashotel.com/wp-content/uploads/2021/05/IMG_9586_Original-scaled.jpeg',
   'https://www.roashotel.com/wp-content/uploads/2021/05/1622753344_Original-scaled.jpeg',
+  'https://www.roashotel.com/wp-content/uploads/2021/05/B26768B5-85A6-4632-82C9-6D42DED8E085-1-scaled.jpg',
   'https://www.roashotel.com/wp-content/uploads/2021/05/1622567338_Original-scaled.jpeg',
-  'https://www.roashotel.com/wp-content/uploads/2021/05/1622566862_Original-scaled.jpeg',
-  'https://www.roashotel.com/wp-content/uploads/2021/05/1622400252_Original-scaled.jpeg',
-  'https://www.roashotel.com/wp-content/uploads/2022/04/SAVE_20210530_091450_Original.jpeg',
-  'https://www.roashotel.com/wp-content/uploads/2022/04/WhatsApp-Image-2022-04-05-at-13.10.16.jpeg',
 ];
 
 let currentImg = 0;

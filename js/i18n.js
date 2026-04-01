@@ -9,6 +9,7 @@ const translations = {
     nav_restoran:    'Restoran',
     nav_galeri:      'Galeri',
     nav_iletisim:    'İletişim',
+    nav_villas:      'Roas Villas',
     nav_rezervasyon: 'Rezervasyon',
 
     hero_eyebrow:   'Bitez · Bodrum · Türkiye',
@@ -44,6 +45,9 @@ const translations = {
     rest_p2: 'Klasik müzik, caz geceleri ve piyano performanslarıyla zenginleşen atmosferinde, sabah kahvaltısından gece geç saatlere kadar lezzetin ayrıcalığını yaşayın.',
     rest_lbl1: 'Kahvaltı', rest_lbl2: 'Kapanış', rest_lbl3: 'WhatsApp Rezervasyon',
     rest_btn: 'Masa Rezervasyonu',
+    menu_label:   'Menü',
+    menu_day:     'Gündüz Menü',
+    menu_evening: 'Akşam Menü',
 
     gallery_eyebrow: 'Galeri',
 
@@ -66,6 +70,7 @@ const translations = {
     nav_restoran:    'Restaurant',
     nav_galeri:      'Gallery',
     nav_iletisim:    'Contact',
+    nav_villas:      'Roas Villas',
     nav_rezervasyon: 'Book Now',
 
     hero_eyebrow:  'Bitez · Bodrum · Turkey',
@@ -101,6 +106,9 @@ const translations = {
     rest_p2: 'Enriched by classical music, jazz evenings and piano performances, enjoy the privilege of flavour from breakfast through to late at night.',
     rest_lbl1: 'Breakfast', rest_lbl2: 'Closing', rest_lbl3: 'WhatsApp Reservation',
     rest_btn: 'Table Reservation',
+    menu_label:   'Menu',
+    menu_day:     'Daytime Menu',
+    menu_evening: 'Evening Menu',
 
     gallery_eyebrow: 'Gallery',
 

@@ -275,6 +275,7 @@
   color: var(--white);
 }
 
+
 /* ── Booking Banner ── */
 .booking-banner {
   background: linear-gradient(135deg, var(--gold) 0%, #a07850 100%);
