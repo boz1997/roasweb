@@ -4,7 +4,18 @@
       "WebFetch(domain:www.roashotel.com)",
       "Bash(grep -c \"whatsapp-float\" /Users/berk/Desktop/roasweb/odalar/*.html)",
       "Bash(grep -l \"room-cta\" /Users/berk/Desktop/roasweb/odalar/*.html)",
-      "Bash(grep -l \"room-info-bar\" /Users/berk/Desktop/roasweb/odalar/*.html)"
+      "Bash(grep -l \"room-info-bar\" /Users/berk/Desktop/roasweb/odalar/*.html)",
+      "Bash(wc:*)",
+      "Bash(curl:*)",
+      "WebSearch",
+      "WebFetch(domain:www.aman.com)",
+      "WebFetch(domain:baranselvillas.com)",
+      "WebFetch(domain:premiervillas.net)",
+      "Bash(python3 -c \":*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git:*)"
     ]
   }
 }

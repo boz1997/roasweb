@@ -13,7 +13,7 @@ const translations = {
     nav_rezervasyon: 'Rezervasyon',
 
     hero_eyebrow:   'Bitez · Bodrum · Türkiye',
-    hero_subtitle:  "Bitez'in En Güzel Manzarası Burada",
+    hero_subtitle:  "Bitez'in En Güzel Manzarası ",
     hero_btn1:      'Rezervasyon Yap',
     hero_btn2:      'Keşfet',
 
@@ -74,7 +74,7 @@ const translations = {
     nav_rezervasyon: 'Book Now',
 
     hero_eyebrow:  'Bitez · Bodrum · Turkey',
-    hero_subtitle: "Bitez's Most Beautiful View is Here",
+    hero_subtitle: "Bitez's Most Beautiful View",
     hero_btn1:     'Book Now',
     hero_btn2:     'Explore',
 
