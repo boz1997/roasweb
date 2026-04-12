@@ -84,7 +84,7 @@ nav.scrolled {
   padding: 6px;
   cursor: pointer;
   position: relative;
-  z-index: 1001;
+  z-index: 1003;
   line-height: 0;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               color 0.3s ease;
@@ -202,18 +202,19 @@ nav.scrolled {
   position: fixed;
   inset: 0;
   background: var(--dark);
-  z-index: 999;
+  z-index: 1002;          /* nav (1000) ve + butonu (1001) üstünde */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 20px;
+  overflow: hidden;
 }
 
 .mobile-menu.open { display: flex; }
 
 .mobile-menu a {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 300;
   color: var(--white);
   text-decoration: none;
