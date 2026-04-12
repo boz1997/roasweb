@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bahçemizden – Cevriyenin Bahçesi · Bodrum Mandarin Kurusu</title>
+  <meta name="description" content="Bodrum'un güneşinde yetişen, el ile toplanan mandalinalardan yapılan doğal, katkısız kurutulmuş mandarin. Cevriyenin Bahçesi." />
+
+  <link rel="icon" type="image/png" href="logoroas.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+
+  <style>
+    /* ── Bahçemizden overrides ── */
+
+    :root {
+      --mandarin: #c8732a;
+      --mandarin-light: #e8a86a;
+      --sage: #4a5c3a;
+      --sage-light: #7a9462;
+      --earth: #2a2318;
+      --parchment: #f9f4ec;
+    }
+
+    body {
+      background: var(--earth);
+    }
+
+    /* ── Minimal nav for this page ── */
+    .b-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.5s ease;
+    }
+    .b-nav.scrolled {
+      background: rgba(42, 35, 24, 0.96);
+      backdrop-filter: blur(20px);
+      padding: 14px 48px;
+      border-bottom: 1px solid rgba(200, 115, 42, 0.2);
+    }
+    .b-nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--parchment);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .b-nav-logo img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(1.1);
+    }
+    .b-nav-back {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(249, 244, 236, 0.55);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+    .b-nav-back:hover { color: var(--mandarin-light); }
+    .b-nav-back svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── HERO ── */
+    .b-hero {
+      position: relative;
+      height: 100vh;
+      min-height: 680px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .b-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('mutfak/bahcede.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      animation: kenBurns 24s ease-in-out infinite alternate;
+    }
+    @keyframes kenBurns {
+      from { transform: scale(1); }
+      to   { transform: scale(1.06); }
+    }
+    .b-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(42,35,24,0.1) 0%,
+        rgba(42,35,24,0.3) 40%,
+        rgba(42,35,24,0.82) 80%,
+        rgba(42,35,24,1)   100%
+      );
+    }
+    .b-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 24px 100px;
+      max-width: 900px;
+    }
+    .b-brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s forwards;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .b-brand-badge::before,
+    .b-brand-badge::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--mandarin-light);
+    }
+    .b-brand-badge span {
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--mandarin-light);
+    }
+    .b-hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 8vw, 96px);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--parchment);
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp 1s 0.5s forwards;
+    }
+    .b-hero-title em {
+      font-style: italic;
+      background: linear-gradient(90deg, var(--mandarin-light) 0%, #f5c878 40%, var(--mandarin) 60%, var(--mandarin-light) 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
+    }
+    .b-hero-sub {
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      color: rgba(249,244,236,0.6);
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 1s 0.7s forwards;
+    }
+    .b-hero-cta {
+      display: inline-flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp 1s 0.9s forwards;
+    }
+    .b-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: var(--mandarin);
+      color: var(--parchment);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.35s ease;
+      border: 1px solid var(--mandarin);
+    }
+    .b-btn-primary:hover {
+      background: transparent;
+      color: var(--mandarin-light);
+    }
+    .b-btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border: 1px solid rgba(249,244,236,0.35);
+      color: rgba(249,244,236,0.75);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.35s ease;
+    }
+    .b-btn-outline:hover {
+      border-color: var(--mandarin-light);
+      color: var(--mandarin-light);
+    }
+    .b-btn-primary svg,
+    .b-btn-outline svg { width: 18px; height: 18px; }
+
+    /* ── SCROLL INDICATOR ── */
+    .b-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp 1s 1.2s forwards;
+    }
+    .b-scroll span {
+      font-size: 8px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: rgba(249,244,236,0.4);
+    }
+    .b-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(200,115,42,0.7), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50%       { opacity: 1;   transform: scaleY(1.15); }
+    }
+
+    /* ── STORY ── */
+    .b-story {
+      padding: 120px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+    .b-story-img {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: visible;        /* badge taşabilsin */
+    }
+    .b-story-img-inner {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;         /* sadece fotoğrafı clip'le */
+      position: relative;
+    }
+    .b-story-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+    .b-story-img:hover img { transform: scale(1.03); }
+    .b-story-img-badge {
+      position: absolute;
+      bottom: 32px;
+      left: -28px;
+      background: var(--earth);
+      border: 1px solid rgba(200,115,42,0.3);
+      padding: 20px 28px;
+      text-align: center;
+      z-index: 2;
+    }
+    .b-story-img-badge strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--mandarin-light);
+      line-height: 1;
+    }
+    .b-story-img-badge span {
+      font-size: 8px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(249,244,236,0.45);
+    }
+    .b-story-text {}
+    .b-story-eyebrow {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--mandarin);
+      margin-bottom: 20px;
+    }
+    .b-story-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 300;
+      color: var(--parchment);
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+    .b-story-title em {
+      font-style: italic;
+      color: var(--mandarin-light);
+    }
+    .b-story-body {
+      color: rgba(249,244,236,0.6);
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .b-story-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--mandarin);
+      margin: 32px 0;
+    }
+    .b-story-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+    .b-tag {
+      padding: 8px 18px;
+      border: 1px solid rgba(200,115,42,0.35);
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--mandarin-light);
+    }
+
+    /* ── FEATURES ── */
+    .b-features {
+      padding: 80px 0;
+      background: rgba(0,0,0,0.2);
+      border-top: 1px solid rgba(200,115,42,0.12);
+      border-bottom: 1px solid rgba(200,115,42,0.12);
+    }
+    .b-features-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+    }
+    .b-feature {
+      text-align: center;
+      padding: 32px 20px;
+    }
+    .b-feature-icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 20px;
+      color: var(--mandarin);
+    }
+    .b-feature h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--parchment);
+      margin-bottom: 8px;
+    }
+    .b-feature p {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(249,244,236,0.45);
+      letter-spacing: 0.5px;
+      line-height: 1.7;
+    }
+
+    /* Features slideshow — globally hidden, shown only on mobile */
+    .b-features-slideshow { display: none !important; }
+    .b-features-dots      { display: none !important; }
+
+    /* ── GALLERY ── */
+    .b-gallery {
+      padding: 120px 0;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+    .b-gallery-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .b-gallery-eyebrow {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--mandarin);
+      margin-bottom: 16px;
+    }
+    .b-gallery-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 300;
+      color: var(--parchment);
+    }
+    .b-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 16px;
+    }
+    .b-gallery-item {
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .b-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .b-gallery-item:hover img { transform: scale(1.05); }
+    .b-gallery-item:nth-child(1) { grid-column: 1 / 2; grid-row: 1 / 3; aspect-ratio: 2/3; }
+    .b-gallery-item:nth-child(2) { grid-column: 2 / 3; aspect-ratio: 4/3; }
+    .b-gallery-item:nth-child(3) { grid-column: 3 / 4; aspect-ratio: 4/3; }
+    .b-gallery-item:nth-child(4) { grid-column: 2 / 4; aspect-ratio: 16/7; }
+    .b-gallery-mobile { display: none; }
+
+    /* ── USAGE ── */
+    .b-usage {
+      padding: 120px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+    .b-usage-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+    .b-usage-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      color: var(--parchment);
+      line-height: 1.15;
+    }
+    .b-usage-title em { font-style: italic; color: var(--mandarin-light); }
+    .b-usage-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(249,244,236,0.55);
+      line-height: 1.9;
+    }
+    .b-usage-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .b-usage-card {
+      padding: 40px 28px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(200,115,42,0.1);
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .b-usage-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--mandarin);
+      transform: scaleX(0);
+      transition: transform 0.35s ease;
+    }
+    .b-usage-card:hover { background: rgba(200,115,42,0.06); }
+    .b-usage-card:hover::before { transform: scaleX(1); }
+    .b-usage-card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: rgba(200,115,42,0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .b-usage-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--parchment);
+      margin-bottom: 10px;
+    }
+    .b-usage-card p {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(249,244,236,0.45);
+      line-height: 1.8;
+    }
+
+    /* ── INFO STRIP ── */
+    .b-info {
+      padding: 80px 0;
+      background: rgba(200,115,42,0.06);
+      border-top: 1px solid rgba(200,115,42,0.15);
+      border-bottom: 1px solid rgba(200,115,42,0.15);
+    }
+    .b-info-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 64px;
+    }
+    .b-info-block h4 {
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--mandarin);
+      margin-bottom: 16px;
+    }
+    .b-info-block ul {
+      list-style: none;
+    }
+    .b-info-block ul li {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(249,244,236,0.07);
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(249,244,236,0.65);
+    }
+    .b-info-block ul li span {
+      color: var(--parchment);
+    }
+    .b-info-block p {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(249,244,236,0.55);
+      line-height: 1.9;
+    }
+
+    /* ── INSTAGRAM ── */
+    .b-insta {
+      padding: 120px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+    .b-insta-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .b-insta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 300;
+      color: var(--parchment);
+      margin-bottom: 12px;
+    }
+    .b-insta-handle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: rgba(249,244,236,0.45);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .b-insta-handle:hover { color: var(--mandarin-light); }
+    .b-insta-handle svg { width: 16px; height: 16px; }
+
+    /* ── Instagram grid (desktop) ── */
+    .b-insta-feed { margin-bottom: 40px; }
+
+    .b-insta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+    .b-insta-grid-item {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      display: block;
+      text-decoration: none;
+    }
+    .b-insta-grid-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+      display: block;
+    }
+    .b-insta-grid-item:hover img { transform: scale(1.05); }
+    .b-insta-grid-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(42,35,24,0.55);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .b-insta-grid-item:hover .b-insta-grid-overlay { opacity: 1; }
+    .b-insta-grid-overlay svg { width: 28px; height: 28px; color: var(--parchment); }
+    .b-insta-grid-overlay span {
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--parchment);
+    }
+
+    /* ── Instagram slideshow (mobile) ── */
+    .b-insta-slideshow {
+      display: none;
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .b-insta-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+    }
+    .b-insta-slide.active { opacity: 1; }
+    .b-insta-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .b-insta-dots {
+      display: none;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .b-insta-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(249,244,236,0.2);
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .b-insta-dot.active { background: var(--mandarin); }
+
+    .b-insta-cta { text-align: center; }
+
+    @media (max-width: 700px) {
+      .b-insta-grid    { display: none; }
+      .b-insta-slideshow { display: block; }
+      .b-insta-dots    { display: flex; }
+    }
+
+    /* ── CTA / CONTACT ── */
+    .b-contact {
+      padding: 120px 0;
+      background: #1a1510;
+      border-top: 1px solid rgba(200,115,42,0.12);
+    }
+    .b-contact-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 48px;
+      text-align: center;
+    }
+    .b-contact-eyebrow {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--mandarin);
+      margin-bottom: 20px;
+    }
+    .b-contact-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 300;
+      color: var(--parchment);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .b-contact-title em { font-style: italic; color: var(--mandarin-light); }
+    .b-contact-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(249,244,236,0.5);
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+    .b-contact-btns {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .b-btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 36px;
+      background: #25D366;
+      color: #fff;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.35s ease;
+      border: 1px solid #25D366;
+    }
+    .b-btn-whatsapp:hover { background: transparent; color: #25D366; }
+    .b-btn-whatsapp svg { width: 20px; height: 20px; }
+    .b-btn-insta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 36px;
+      border: 1px solid rgba(249,244,236,0.25);
+      color: rgba(249,244,236,0.75);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.35s ease;
+    }
+    .b-btn-insta:hover { border-color: var(--mandarin-light); color: var(--mandarin-light); }
+    .b-btn-insta svg { width: 20px; height: 20px; }
+    .b-contact-note {
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(249,244,236,0.07);
+    }
+    .b-contact-note p {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(249,244,236,0.3);
+      letter-spacing: 0.5px;
+      line-height: 1.8;
+    }
+
+    /* ── FOOTER ── */
+    .b-footer {
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(249,244,236,0.06);
+    }
+    .b-footer p {
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: rgba(249,244,236,0.2);
+    }
+    .b-footer a {
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: rgba(249,244,236,0.3);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .b-footer a:hover { color: var(--mandarin-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .b-nav { padding: 16px 20px; }
+      .b-nav.scrolled { padding: 12px 20px; }
+      .b-nav-logo { display: none; }          /* mobilde logo gizle */
+      .b-nav-back {
+        font-size: 9px;
+        letter-spacing: 2px;
+        gap: 8px;
+        color: rgba(249,244,236,0.7);
+      }
+
+      .b-story {
+        grid-template-columns: 1fr;
+        padding-left: 24px;
+        padding-right: 24px;
+        gap: 48px;
+      }
+      .b-story-img-badge { left: 0; }
+      .b-features-inner { grid-template-columns: repeat(2, 1fr); }
+      .b-gallery { padding-left: 24px; padding-right: 24px; }
+      .b-info-inner {
+        grid-template-columns: 1fr;
+        padding: 0 24px;
+      }
+      .b-insta { padding-left: 24px; padding-right: 24px; }
+      .b-contact-inner { padding: 0 24px; }
+      .b-footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      /* Features mobil slideshow */
+      .b-features-inner { display: none !important; }
+      #featSlideshow {
+        display: block !important;
+        position: relative;
+        min-height: 240px;
+      }
+      .b-features-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.9s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .b-features-slide.active { opacity: 1; }
+      #featDots {
+        display: flex !important;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+        padding-bottom: 8px;
+      }
+      .b-features-dot {
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: rgba(249,244,236,0.2);
+        transition: background 0.3s;
+        cursor: pointer;
+      }
+      .b-features-dot.active { background: var(--mandarin); }
+
+      /* Galeri mobilden: sadece toplu.jpg (b-gallery-mobile), portrait */
+      .b-gallery-grid { display: block; }
+      .b-gallery-desktop { display: none !important; }
+      .b-gallery-item:nth-child(1),
+      .b-gallery-item:nth-child(2),
+      .b-gallery-item:nth-child(3) { display: none; }
+      .b-gallery-mobile {
+        display: block !important;
+        aspect-ratio: 3/5;
+        width: 100%;
+      }
+      .b-gallery-mobile img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <div class="b-nav" id="bNav">
+    <a href="index.html" class="b-nav-logo">
+      <img src="logoroas.png" alt="Roas Hotel" />
+    </a>
+    <a href="index.html" class="b-nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      Roas Hotel
+    </a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="b-hero">
+    <div class="b-hero-bg"></div>
+    <div class="b-hero-overlay"></div>
+    <div class="b-hero-content">
+      <div class="b-brand-badge">
+        <span>Cevriyenin Bahçesi</span>
+      </div>
+      <h1 class="b-hero-title">Bodrum <em>Mandarin</em><br>Kurusu</h1>
+      <p class="b-hero-sub">El Yapımı &nbsp;·&nbsp; Katkısız &nbsp;·&nbsp; Sınırlı Üretim</p>
+      <div class="b-hero-cta">
+        <a href="https://wa.me/905449319530?text=Merhaba,%20Bodrum%20Mandarin%20Kurusu%20hakkında%20bilgi%20almak%20istiyorum."
+           target="_blank" class="b-btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Sipariş & Bilgi
+        </a>
+        <a href="https://www.instagram.com/cevriyenin.mutfagi" target="_blank" class="b-btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+    <div class="b-scroll">
+      <span>Keşfet</span>
+      <div class="b-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── STORY ── -->
+  <div class="b-story">
+    <div class="b-story-img reveal-left">
+      <div class="b-story-img-inner">
+        <img src="mutfak/urunler-sade.jpg" alt="Bodrum Mandarin Kurusu — El Yapımı Katkısız" />
+      </div>
+      <div class="b-story-img-badge">
+        <strong>100%</strong>
+        <span>Doğal</span>
+      </div>
+    </div>
+    <div class="b-story-text reveal-right">
+      <span class="b-story-eyebrow">Bahçemizden Sofraya</span>
+      <h2 class="b-story-title">Güneşin <em>Bodrum'a</em><br>hediyesi</h2>
+      <div class="b-story-divider"></div>
+      <p class="b-story-body">
+        Ege'nin en saf havasında, kendi bahçemizde büyüyen mandalinalar; hiçbir katkı maddesi, hiçbir koruyucu olmadan kurutularak sofraya geliyor.
+      </p>
+      <p class="b-story-body">
+        Her dilim, el ile toplanmış ve titizlikle işlenmiş. Sınırlı sayıda üretildiği için her pakette gerçek bir Bodrum bahçesinin özü var. Çay fincanınıza, mueslinize ya da doğrudan ağzınıza — nasıl tercih ederseniz.
+      </p>
+      <div class="b-story-tags">
+        <span class="b-tag">El Yapımı</span>
+        <span class="b-tag">Katkısız</span>
+        <span class="b-tag">Sınırlı Üretim</span>
+        <span class="b-tag">Kendi Bahçemiz</span>
+        <span class="b-tag">Bodrum · Bitez</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FEATURES ── -->
+  <div class="b-features">
+    <!-- Desktop: 4'lü grid -->
+    <div class="b-features-inner">
+      <div class="b-feature reveal delay-1">
+        <svg class="b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+          <line x1="6" y1="1" x2="6" y2="4"/>
+          <line x1="10" y1="1" x2="10" y2="4"/>
+          <line x1="14" y1="1" x2="14" y2="4"/>
+        </svg>
+        <h4>El Yapımı</h4>
+        <p>Her dilim özenle elle işlenir, makine değmez</p>
+      </div>
+      <div class="b-feature reveal delay-2">
+        <svg class="b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        <h4>Katkısız</h4>
+        <p>Koruyucu, renklendirici ve şeker yok — sadece mandarin</p>
+      </div>
+      <div class="b-feature reveal delay-3">
+        <svg class="b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
+        <h4>Sınırlı Üretim</h4>
+        <p>Mevsimsel hasat, her sezonda sınırlı stok</p>
+      </div>
+      <div class="b-feature reveal delay-4">
+        <svg class="b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <h4>Kendi Bahçemiz</h4>
+        <p>Bitez, Bodrum'daki aile bahçesinden doğrudan</p>
+      </div>
+    </div>
+
+    <!-- Mobil: fade slideshow -->
+    <div class="b-features-slideshow" id="featSlideshow">
+      <div class="b-features-slide active">
+        <div class="b-feature">
+          <svg class="b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+            <line x1="6" y1="1" x2="6" y2="4"/>
+            <line x1="10" y1="1" x2="10" y2="4"/>
+            <line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+          <h4>El Yapımı</h4>
+          <p>Her dilim özenle elle işlenir, makine değmez</p>
+        </div>
+      </div>
+      <div class="b-features-slide">
+        <div class="b-feature">
+          <svg class="b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <h4>Katkısız</h4>
+          <p>Koruyucu, renklendirici ve şeker yok — sadece mandarin</p>
+        </div>
+      </div>
+      <div class="b-features-slide">
+        <div class="b-feature">
+          <svg class="b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+          <h4>Sınırlı Üretim</h4>
+          <p>Mevsimsel hasat, her sezonda sınırlı stok</p>
+        </div>
+      </div>
+      <div class="b-features-slide">
+        <div class="b-feature">
+          <svg class="b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <h4>Kendi Bahçemiz</h4>
+          <p>Bitez, Bodrum'daki aile bahçesinden doğrudan</p>
+        </div>
+      </div>
+    </div>
+    <div class="b-features-dots" id="featDots">
+      <div class="b-features-dot active" data-index="0"></div>
+      <div class="b-features-dot" data-index="1"></div>
+      <div class="b-features-dot" data-index="2"></div>
+      <div class="b-features-dot" data-index="3"></div>
+    </div>
+  </div>
+
+  <!-- ── GALLERY ── -->
+  <div class="b-gallery">
+    <div class="b-gallery-header reveal">
+      <span class="b-gallery-eyebrow">Bir Bakış</span>
+      <h2 class="b-gallery-title">Bahçeden <em style="font-style:italic;color:var(--mandarin-light)">pakete</em></h2>
+    </div>
+    <div class="b-gallery-grid">
+      <div class="b-gallery-item reveal-scale">
+        <img src="mutfak/urunler.jpg" alt="Cevriyenin Bahçesi — Mandarin Kurusu" />
+      </div>
+      <div class="b-gallery-item reveal delay-1">
+        <img src="mutfak/mutfakta.jpg" alt="Doğal Mandarin Kurusu Çay" />
+      </div>
+      <div class="b-gallery-item reveal delay-2">
+        <img src="mutfak/urunler-sade.jpg" alt="Mandarin Kurusu Paket" />
+      </div>
+      <!-- Desktop'ta masada.jpg, mobilde toplu.jpg -->
+      <div class="b-gallery-item b-gallery-desktop reveal delay-3">
+        <img src="mutfak/masada.jpg" alt="Bodrum Mandarin Kurusu Masada" />
+      </div>
+      <div class="b-gallery-item b-gallery-mobile reveal delay-3">
+        <img src="mutfak/toplu.jpg" alt="Cevriyenin Bahçesi — Ürün Kolajı" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ── INFO STRIP ── -->
+  <div class="b-info">
+    <div class="b-info-inner">
+
+      <div class="b-info-block reveal">
+        <h4>İçindekiler</h4>
+        <ul>
+          <li>Malzeme <span>%100 Bodrum Mandalinası</span></li>
+          <li>Katkı Maddesi <span>Yok</span></li>
+          <li>Koruyucu <span>Yok</span></li>
+          <li>İlave Şeker <span>Yok</span></li>
+          <li>Gluten <span>Yok</span></li>
+        </ul>
+      </div>
+
+      <div class="b-info-block reveal delay-1">
+        <h4>Besin Değerleri (100g)</h4>
+        <ul>
+          <li>Enerji <span>~386 kcal</span></li>
+          <li>Karbonhidrat <span>88g</span></li>
+          <li>Lif <span>11.6g</span></li>
+          <li>Protein <span>5.3g</span></li>
+          <li>C Vitamini <span>Yüksek</span></li>
+        </ul>
+      </div>
+
+      <div class="b-info-block reveal delay-2">
+        <h4>Saklama & Kargo</h4>
+        <p>
+          Serin ve kuru yerde, ağzı kapalı saklayın. Açıldıktan sonra en geç 3 ay içinde tüketin.<br><br>
+          Türkiye genelinde kargo ile gönderilmektedir. Sipariş ve fiyat bilgisi için WhatsApp veya Instagram üzerinden ulaşabilirsiniz.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── INSTAGRAM ── -->
+  <div class="b-insta">
+    <div class="b-insta-header reveal">
+      <h2 class="b-insta-title">Bizi Instagram'da<br>takip edin</h2>
+      <a href="https://www.instagram.com/cevriyenin.mutfagi" target="_blank" class="b-insta-handle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        @cevriyenin.mutfagi
+      </a>
+    </div>
+
+    <div class="b-insta-feed reveal">
+
+      <!-- Desktop: 4'lü yan yana grid -->
+      <div class="b-insta-grid">
+        <a href="https://www.instagram.com/p/DVojsNNDJq3/" target="_blank" class="b-insta-grid-item">
+          <img src="mutfak/insta1.jpg" alt="@cevriyenin.mutfagi" />
+          <div class="b-insta-grid-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <span>Instagram'da Gör</span>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/p/DVTvJlpDNB1/" target="_blank" class="b-insta-grid-item">
+          <img src="mutfak/insta2.jpg" alt="@cevriyenin.mutfagi" />
+          <div class="b-insta-grid-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <span>Instagram'da Gör</span>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/p/DVBUhHiDNl8/" target="_blank" class="b-insta-grid-item">
+          <img src="mutfak/insta3.jpg" alt="@cevriyenin.mutfagi" />
+          <div class="b-insta-grid-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <span>Instagram'da Gör</span>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/p/DVg3apEjE7h/" target="_blank" class="b-insta-grid-item">
+          <img src="mutfak/insta4.jpg" alt="@cevriyenin.mutfagi" />
+          <div class="b-insta-grid-overlay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <span>Instagram'da Gör</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Mobil: fade slideshow -->
+      <div class="b-insta-slideshow" id="instaSlideshow">
+        <div class="b-insta-slide active">
+          <img src="mutfak/insta1.jpg" alt="@cevriyenin.mutfagi" />
+        </div>
+        <div class="b-insta-slide">
+          <img src="mutfak/insta2.jpg" alt="@cevriyenin.mutfagi" />
+        </div>
+        <div class="b-insta-slide">
+          <img src="mutfak/insta3.jpg" alt="@cevriyenin.mutfagi" />
+        </div>
+        <div class="b-insta-slide">
+          <img src="mutfak/insta4.jpg" alt="@cevriyenin.mutfagi" />
+        </div>
+      </div>
+      <div class="b-insta-dots" id="instaDots">
+        <div class="b-insta-dot active" data-index="0"></div>
+        <div class="b-insta-dot" data-index="1"></div>
+        <div class="b-insta-dot" data-index="2"></div>
+        <div class="b-insta-dot" data-index="3"></div>
+      </div>
+
+    </div>
+
+    <div class="b-insta-cta reveal">
+      <a href="https://www.instagram.com/cevriyenin.mutfagi" target="_blank" class="b-btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:18px;height:18px;">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        Tüm Gönderileri Gör
+      </a>
+    </div>
+  </div>
+
+  <!-- ── CTA / CONTACT ── -->
+  <div class="b-contact">
+    <div class="b-contact-inner">
+      <span class="b-contact-eyebrow reveal">Sipariş & Bilgi</span>
+      <h2 class="b-contact-title reveal">Bahçeden<br><em>kapınıza</em></h2>
+      <p class="b-contact-sub reveal">
+        Türkiye'nin dört bir yanına kargo. Toplu sipariş, hediye paketi ve özel fiyatlandırma için bize ulaşın.
+      </p>
+      <div class="b-contact-btns reveal">
+        <a href="https://wa.me/905449319530?text=Merhaba,%20Bodrum%20Mandarin%20Kurusu%20hakkında%20bilgi%20almak%20istiyorum."
+           target="_blank" class="b-btn-whatsapp">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp ile Sipariş
+        </a>
+        <a href="https://www.instagram.com/cevriyenin.mutfagi" target="_blank" class="b-btn-insta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          Instagram DM
+        </a>
+      </div>
+      <div class="b-contact-note reveal">
+        <p>
+          Cevriyenin Bahçesi — Bodrum, Bitez<br>
+          Ürünler kendi bahçemizde yetiştirilip el ile işlendiğinden stok sınırlıdır.<br>
+          <strong style="color:rgba(249,244,236,0.45)">@cevriyenin.mutfagi</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="b-footer">
+    <p>© 2026 Cevriyenin Bahçesi · Bodrum</p>
+    <a href="index.html">Roas Hotel'e Dön</a>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('bNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Features mobil slideshow
+    (function() {
+      function initSlideshow(slidesSelector, dotsSelector, interval) {
+        const slides = document.querySelectorAll(slidesSelector);
+        const dots   = document.querySelectorAll(dotsSelector);
+        if (!slides.length) return;
+        let current = 0;
+        function goTo(n) {
+          slides[current].classList.remove('active');
+          dots[current].classList.remove('active');
+          current = (n + slides.length) % slides.length;
+          slides[current].classList.add('active');
+          dots[current].classList.add('active');
+        }
+        let timer = setInterval(() => goTo(current + 1), interval);
+        dots.forEach(dot => {
+          dot.addEventListener('click', () => {
+            clearInterval(timer);
+            goTo(+dot.dataset.index);
+            timer = setInterval(() => goTo(current + 1), interval);
+          });
+        });
+      }
+      initSlideshow('.b-features-slide', '.b-features-dot', 2000);
+    })();
+
+    // Instagram mobil slideshow
+    (function() {
+      const slides = document.querySelectorAll('.b-insta-slide');
+      const dots   = document.querySelectorAll('.b-insta-dot');
+      let current  = 0;
+
+      function goTo(n) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (n + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+
+      // Otomatik geçiş — 2 saniye
+      let timer = setInterval(() => goTo(current + 1), 2000);
+
+      // Noktalara tıklama
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          clearInterval(timer);
+          goTo(+dot.dataset.index);
+          timer = setInterval(() => goTo(current + 1), 2000);
+        });
+      });
+    })();
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

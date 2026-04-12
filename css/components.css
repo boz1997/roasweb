@@ -74,19 +74,25 @@ nav.scrolled {
 
 .hamburger {
   display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 4px;
 }
 
-.hamburger span {
-  display: block;
-  width: 24px;
-  height: 1.5px;
-  background: var(--cream);
-  transition: all 0.3s;
+.menu-icon-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: rgba(245,240,232,0.85);
+  padding: 6px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1001;
+  line-height: 0;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              color 0.3s ease;
+  transform-origin: center;
 }
+
+.menu-icon-btn:hover { color: var(--gold-light); }
+.menu-icon-btn.is-open { transform: rotate(45deg); }
 
 /* ── Language Toggle ── */
 .lang-toggle {
@@ -217,14 +223,7 @@ nav.scrolled {
 .mobile-menu a:hover { color: var(--gold); }
 
 .mobile-close {
-  position: absolute;
-  top: 24px;
-  right: 32px;
-  background: none;
-  border: none;
-  color: var(--cream);
-  font-size: 28px;
-  cursor: pointer;
+  display: none; /* + → × butonu kapama işini hallediyor */
 }
 
 /* ── Hero ── */

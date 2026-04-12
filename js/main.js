@@ -16,15 +16,23 @@ window.addEventListener('load', () => {
 
 // ── Mobile menu ───────────────────────────────────────────────
 const mobileMenu = document.getElementById('mobileMenu');
+const hamburger  = document.getElementById('hamburger');
 
-document.getElementById('hamburger').addEventListener('click', () => {
-  mobileMenu.classList.add('open');
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.contains('open');
+  if (isOpen) {
+    closeMobile();
+  } else {
+    mobileMenu.classList.add('open');
+    hamburger.classList.add('is-open');
+  }
 });
 
 document.getElementById('mobileClose').addEventListener('click', closeMobile);
 
 function closeMobile() {
   mobileMenu.classList.remove('open');
+  hamburger.classList.remove('is-open');
 }
 
 // ── Scroll reveal (IntersectionObserver) ─────────────────────
