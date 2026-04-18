@@ -7,443 +7,810 @@
   <link rel="icon" type="image/png" href="../logoroas.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/base.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
-  <link rel="stylesheet" href="../css/components.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Open+Sans:wdth,wght@75,300;75,600;75,700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+
   <style>
-    .menu-hero {
-      padding: 160px 0 80px;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #f4ede3;
+      --cream-d:  #ece3d8;
+      --gold:     #9e7c4a;
+      --text:     #2a2117;
+      --text-mid: #4a3f30;
+      --rule:     #c9b99a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(244,237,227,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+      padding: 10px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topbar a {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color .25s;
+    }
+    .topbar a:hover { color: var(--gold); }
+    .topbar .lang-links { display: flex; gap: 8px; }
+    .topbar .lang-links a {
+      padding: 5px 14px;
+      border: 1px solid var(--rule);
+      color: var(--gold);
+    }
+    .topbar .lang-links a.active,
+    .topbar .lang-links a:hover {
+      background: var(--gold);
+      color: var(--cream);
+      border-color: var(--gold);
+    }
+
+    .menu-wrapper {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 90px 32px 80px;
+    }
+
+    .rl-logo {
       text-align: center;
-      background: linear-gradient(180deg, rgba(28,26,23,0) 0%, var(--dark) 100%),
-                  url('https://www.roashotel.com/wp-content/uploads/2021/05/B26768B5-85A6-4632-82C9-6D42DED8E085-1-scaled.jpg') center/cover no-repeat;
-      position: relative;
+      margin-bottom: 64px;
     }
-    .menu-hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(28,26,23,0.70);
+    .rl-logo img {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
     }
-    .menu-hero-content { position: relative; z-index: 1; }
-    .menu-hero-badge {
-      font-size: 9px;
+
+    .menu-page {
+      margin-bottom: 96px;
+    }
+    .menu-page + .menu-page {
+      border-top: 1px solid var(--rule);
+      padding-top: 80px;
+    }
+
+    .cols {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0 56px;
+      align-items: start;
+    }
+    .col-divider {
+      background: var(--rule);
+      align-self: stretch;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+    .section:last-child { margin-bottom: 0; }
+
+    .section-rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 40px auto;
+      width: 100%;
+    }
+
+    .section-title {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 600;
+      font-size: 22px;
       letter-spacing: 5px;
       text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 20px;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 28px;
     }
-    .menu-hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(42px, 6vw, 72px);
+
+    .item {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+    .item:last-child { margin-bottom: 0; }
+
+    .item-name {
+      font-family: 'Open Sans', sans-serif;
+      font-stretch: condensed;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .item-desc {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 10px;
       font-weight: 300;
-      color: var(--white);
-      line-height: 1.1;
-    }
-    .menu-hero-title em {
       font-style: italic;
-      background: linear-gradient(90deg, var(--gold-light) 0%, #f0ddb8 40%, var(--gold) 60%, var(--gold-light) 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 4s linear infinite;
+      color: var(--text-mid);
+      line-height: 1.6;
+      margin-top: 3px;
     }
-    .menu-hero-hours {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-top: 16px;
-    }
-    .lang-switch {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 32px;
-    }
-    .lang-switch a {
-      display: inline-block;
-      padding: 10px 24px;
-      border: 1px solid rgba(184,150,110,0.4);
-      color: var(--gold);
-      text-decoration: none;
+
+    .section-note {
+      font-family: 'IBM Plex Sans', sans-serif;
       font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: all 0.3s;
-    }
-    .lang-switch a:hover,
-    .lang-switch a.active {
-      background: var(--gold);
-      color: var(--dark);
-    }
-    .menu-content { padding: 80px 0 120px; }
-    .menu-section {
-      max-width: 900px;
-      margin: 0 auto 72px;
-      padding: 0 48px;
-    }
-    .menu-section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 8px;
-      letter-spacing: 1px;
-    }
-    .menu-section-subtitle {
-      font-size: 9px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 32px;
-      display: block;
-    }
-    .menu-divider {
-      width: 48px;
-      height: 1px;
-      background: var(--gold);
-      margin: 16px 0 32px;
-    }
-    .menu-items { display: flex; flex-direction: column; gap: 0; }
-    .menu-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(184,150,110,0.12);
-      gap: 24px;
-    }
-    .menu-item:last-child { border-bottom: none; }
-    .menu-item-info { flex: 1; }
-    .menu-item-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 6px;
-      line-height: 1.2;
-    }
-    .menu-item-desc {
-      font-size: 12px;
-      color: var(--text-muted);
-      font-weight: 300;
-      line-height: 1.7;
-      max-width: 500px;
-    }
-    .menu-item-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--gold);
-      white-space: nowrap;
-      padding-top: 2px;
-    }
-    .menu-note {
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-      line-height: 1.8;
+      font-style: italic;
+      color: var(--text-mid);
       text-align: center;
-      margin-top: 48px;
-      padding: 32px;
-      border: 1px solid rgba(184,150,110,0.15);
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-top: 14px;
+      line-height: 1.6;
     }
-    .menu-footer {
-      padding: 48px;
-      text-align: center;
-      border-top: 1px solid rgba(184,150,110,0.15);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-    }
-    .menu-footer a.back-link {
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .menu-footer a.back-link:hover { color: var(--gold); }
-    .footer-instagram {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 2px;
-      transition: color 0.3s;
-    }
-    .footer-instagram:hover { color: var(--gold); }
-    @media (max-width: 768px) {
-      .menu-section { padding: 0 24px; }
-      .menu-item { flex-direction: column; gap: 8px; }
-      .menu-hero { padding: 140px 24px 64px; }
-      .menu-footer { padding: 32px 24px; }
+
+    @media (max-width: 680px) {
+      .cols {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .col-divider { display: none; }
+      .col-right {
+        border-top: 1px solid var(--rule);
+        padding-top: 40px;
+        margin-top: 8px;
+      }
+      .topbar { padding: 10px 16px; }
+      .menu-wrapper { padding: 80px 16px 60px; }
+      .section-title { font-size: 18px; letter-spacing: 4px; }
+      .item-name { font-size: 14px; }
+      .item-desc { font-size: 10px; }
+      .rl-logo img { height: 60px; }
+      .menu-page + .menu-page { padding-top: 56px; margin-bottom: 0; }
     }
   </style>
 </head>
 <body>
 
-  <nav id="navbar" class="scrolled">
-    <a href="../index.html" class="nav-logo">
-      <img src="../logoroas.png" alt="Roas Hotel" />
-    </a>
-    <ul class="nav-links">
-      <li><a href="../index.html#about">Hakkımızda</a></li>
-      <li><a href="../index.html#rooms">Odalar</a></li>
-      <li><a href="../index.html#restaurant">Restoran</a></li>
-      <li><a href="../index.html#gallery">Galeri</a></li>
-      <li><a href="../index.html#location">İletişim</a></li>
-      <li><a href="https://roashotel.rezervasyonal.com" target="_blank" class="nav-cta">Rezervasyon</a></li>
-    </ul>
-  </nav>
-
-  <section class="menu-hero">
-    <div class="menu-hero-content">
-      <span class="menu-hero-badge">Milo By Roas · Bitez, Bodrum</span>
-      <h1 class="menu-hero-title">Akşam <em>Menü</em></h1>
-      <p class="menu-hero-hours">18:00 – 00:00</p>
-      <div class="lang-switch">
-        <a href="aksammenu-tr.html" class="active">TR</a>
-        <a href="aksammenu-en.html">EN</a>
-      </div>
+  <div class="topbar">
+    <a href="../index.html">← Ana Sayfa</a>
+    <div class="lang-links">
+      <a href="aksammenu-tr.html" class="active">TR</a>
+      <a href="aksammenu-en.html">EN</a>
     </div>
-  </section>
-
-  <div class="menu-content">
-
-    <!-- BAŞLANGIÇLAR -->
-    <div class="menu-section reveal">
-      <span class="menu-section-subtitle">Akşam Yemeği</span>
-      <h2 class="menu-section-title">Başlangıçlar</h2>
-      <div class="menu-divider"></div>
-      <div class="menu-items">
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Midye Tava</div>
-            <div class="menu-item-desc">Çıtır midye, tartar sos, limon, taze maydanoz</div>
-          </div>
-          <div class="menu-item-price">₺ 260</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Burrata</div>
-            <div class="menu-item-desc">Taze burrata peyniri, heirloom domates, fesleğen pesto, zeytinyağı, deniz tuzu</div>
-          </div>
-          <div class="menu-item-price">₺ 320</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Karides Güveç</div>
-            <div class="menu-item-desc">Tereyağlı sarımsaklı karides, domates, biber, ekmek</div>
-          </div>
-          <div class="menu-item-price">₺ 380</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Mezze Tabağı</div>
-            <div class="menu-item-desc">Hummus, babaganuş, haydari, muhammara, pide ekmeği</div>
-          </div>
-          <div class="menu-item-price">₺ 280</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Balık Çorbası</div>
-            <div class="menu-item-desc">Günün taze balığından yapılan kremali çorba, kruton, dereotu yağı</div>
-          </div>
-          <div class="menu-item-price">₺ 220</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- ANA YEMEKLER -->
-    <div class="menu-section reveal">
-      <span class="menu-section-subtitle">Deniz & Kara</span>
-      <h2 class="menu-section-title">Ana Yemekler</h2>
-      <div class="menu-divider"></div>
-      <div class="menu-items">
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Levrek Izgara</div>
-            <div class="menu-item-desc">Taze levrek fileto, ızgara sebzeler, limon-kapari tereyağı, roka salatası</div>
-          </div>
-          <div class="menu-item-price">₺ 680</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Ahtapot Izgara</div>
-            <div class="menu-item-desc">Közlenmiş ahtapot, mercimek salatası, nar sos, kekik yağı</div>
-          </div>
-          <div class="menu-item-price">₺ 580</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Dana Antrikot</div>
-            <div class="menu-item-desc">300g dana antrikot, kemik iliği tereyağı, sebze garnitürü, soslar</div>
-          </div>
-          <div class="menu-item-price">₺ 880</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Kuzu Pirzola</div>
-            <div class="menu-item-desc">Frenk üzümü glazeli kuzu pirzola, zeytinyağlı patates püresi, mevsim sebzeleri</div>
-          </div>
-          <div class="menu-item-price">₺ 760</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Mantar Risotto</div>
-            <div class="menu-item-desc">Porcini ve kültür mantar karışımı, parmesan, taze kekik, truffle yağı</div>
-          </div>
-          <div class="menu-item-price">₺ 420</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Karides Linguine</div>
-            <div class="menu-item-desc">Karides, kiraz domates, sarımsak, beyaz şarap, taze maydanoz, linguine</div>
-          </div>
-          <div class="menu-item-price">₺ 480</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- TATLILAR -->
-    <div class="menu-section reveal">
-      <span class="menu-section-subtitle">Bitiş</span>
-      <h2 class="menu-section-title">Tatlılar</h2>
-      <div class="menu-divider"></div>
-      <div class="menu-items">
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Crème Brûlée</div>
-            <div class="menu-item-desc">Klasik Fransız kreması, karamelize şeker, taze meyveler</div>
-          </div>
-          <div class="menu-item-price">₺ 220</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Çikolatalı Fondant</div>
-            <div class="menu-item-desc">Sıcak çikolata fondant, vanilyalı dondurma, toz şeker</div>
-          </div>
-          <div class="menu-item-price">₺ 240</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Panna Cotta</div>
-            <div class="menu-item-desc">Vanilyalı panna cotta, mevsim meyve sosu, taze nane</div>
-          </div>
-          <div class="menu-item-price">₺ 200</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Dondurma Seçkisi</div>
-            <div class="menu-item-desc">Üç top el yapımı dondurma, taze meyveler, fındık kırığı</div>
-          </div>
-          <div class="menu-item-price">₺ 180</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- İÇECEKLER -->
-    <div class="menu-section reveal">
-      <span class="menu-section-subtitle">Kadeh</span>
-      <h2 class="menu-section-title">İçecekler</h2>
-      <div class="menu-divider"></div>
-      <div class="menu-items">
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Şarap Seçkisi</div>
-            <div class="menu-item-desc">Yerli ve yabancı şaraplar — güncel liste için servis ekibimize danışın</div>
-          </div>
-          <div class="menu-item-price">Fiyat Listesi</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Aperol Spritz</div>
-            <div class="menu-item-desc">Aperol, prosecco, soda, portakal dilimi</div>
-          </div>
-          <div class="menu-item-price">₺ 280</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Signature Kokteyl</div>
-            <div class="menu-item-desc">Günlük özel karışım — barmenimize sorun</div>
-          </div>
-          <div class="menu-item-price">₺ 320</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Alkölsüz Kokteyl</div>
-            <div class="menu-item-desc">Meyve bazlı, soda, taze nane ve mevsim meyveleri</div>
-          </div>
-          <div class="menu-item-price">₺ 180</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Türk Kahvesi</div>
-            <div class="menu-item-desc">Geleneksel Türk kahvesi, lokum</div>
-          </div>
-          <div class="menu-item-price">₺ 80</div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="menu-note reveal">
-      Fiyatlarımıza KDV dahildir. Alerjik ürünler için lütfen servis ekibimizle iletişime geçin.<br>
-      Menümüz mevsimsel olarak değişebilir. Balık seçimi günlük pazardan temin edilmektedir.
-    </div>
-
   </div>
 
-  <footer class="menu-footer">
-    <a href="../index.html" class="back-link">← Ana Sayfaya Dön</a>
-    <a href="https://www.instagram.com/milobyroas" target="_blank" class="footer-instagram">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      @milobyroas
-    </a>
-  </footer>
+  <div class="menu-wrapper">
 
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
-  </script>
+    <!-- ════════════════════ SAYFA 1 ════════════════════ -->
+    <div class="menu-page">
+
+      <div class="rl-logo">
+        <img src="../logoroas.png" alt="Milo By Roas" />
+      </div>
+
+      <div class="cols">
+
+        <!-- SOL: ÇORBALAR + MEZELER + ATIŞTIRMALIK -->
+        <div class="col-left">
+
+          <div class="section">
+            <h2 class="section-title">Çorbalar</h2>
+
+            <div class="item">
+              <div class="item-name">Sütlü Mısır Çorbası 320</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Fırınlanmış Domates Çorbası 320</div>
+            </div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Mezeler</h2>
+
+            <div class="item"><div class="item-name">Köpoğlu 420</div></div>
+            <div class="item"><div class="item-name">Humus 420</div></div>
+            <div class="item"><div class="item-name">Havuç Tarator 420</div></div>
+            <div class="item"><div class="item-name">Girit Ezme 420</div></div>
+            <div class="item"><div class="item-name">Piyaz 380</div></div>
+            <div class="item"><div class="item-name">Kuru Cacık 380</div></div>
+            <div class="item"><div class="item-name">Atom 400</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Atıştırmalık</h2>
+
+            <div class="item">
+              <div class="item-name">Çıtır Tavuk ve Patates Kızartması 650</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Karışık Atıştırmalık Tabağı 850</div>
+              <div class="item-desc">Çıtır tavuk, soğan halkaları, patates kızartması,<br>
+              paçanga, kızarmış sosis ve kokteyl sos eşliğinde</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Tavuk Dürüm 720</div>
+              <div class="item-desc">Patates Kızartması Eşliğinde</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Patates Kızartması 380</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Baharatlı Elma Dilim Patates 400</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-divider"></div>
+
+        <!-- SAĞ: SOĞUK BAŞLANGIÇLAR + ARA SICAKLAR + SALATA -->
+        <div class="col-right">
+
+          <div class="section">
+            <h2 class="section-title">Soğuk Başlangıçlar</h2>
+
+            <div class="item">
+              <div class="item-name">Dana Carpaccio 900</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Buratta Caprese 1050</div>
+            </div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Ara Sıcaklar</h2>
+
+            <div class="item"><div class="item-name">Paçanga Böreği 450</div></div>
+            <div class="item"><div class="item-name">Karides Güveç 900</div></div>
+            <div class="item"><div class="item-name">Kaşarlı Mantar 420</div></div>
+            <div class="item"><div class="item-name">Shot Karides (İki adet) 450</div></div>
+            <div class="item"><div class="item-name">Sarımsaklı Ekmek 320</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Salata</h2>
+
+            <div class="item">
+              <div class="item-name">Çoban Salata 520</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Akdeniz Salatası 520</div>
+              <div class="item-desc">Mevsim yeşillikleri, domates, yeşil zeytin,<br>
+              ezine peyniri, zeytinyağlı sos</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Hellim Salatası 680</div>
+              <div class="item-desc">Roka yaprakları, köz patlıcan, kuşkonmaz,<br>
+              enginar kalbi, hellim ızgara</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Tavuklu Caprese Salatası 740</div>
+              <div class="item-desc">Balzamik soslu tavuk parçaları, mozarella,<br>
+              ıspanak, fesleğen, avokado, kiraz domates</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Somonlu Kiona Salatası 820</div>
+              <div class="item-desc">Renkli biberler ile harmanlanmış kinoa<br>
+              tohumları, füme somon, avokado, salatalık,<br>
+              kırmızı soğan, kapari, bahçe yeşillikleri</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════ SAYFA 2 ════════════════════ -->
+    <div class="menu-page">
+
+      <div class="rl-logo">
+        <img src="../logoroas.png" alt="Milo By Roas" />
+      </div>
+
+      <div class="cols">
+
+        <!-- SOL: PIZZALAR -->
+        <div class="col-left">
+
+          <div class="section">
+            <h2 class="section-title">Pizzalar</h2>
+
+            <div class="item">
+              <div class="item-name">Margherita 850</div>
+              <div class="item-desc">Domates sos, mozzarella, taze fesleğen,<br>
+              parmesan ve pesto</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Burrata Verde 1100</div>
+              <div class="item-desc">Domates sos, pesto, burrata, Antep fıstığı,<br>
+              yeşillik ve zeytinyağı</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Chick BBQ 940</div>
+              <div class="item-desc">BBQ soslu çıtır tavuk, mozzarella, kırmızı<br>
+              soğan, maydanoz ve kişniş</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">The Butcher 1150</div>
+              <div class="item-desc">Domates sos, mozzarella, parmesan, füme<br>
+              antrikot, pastırma, füme dana eti, füme<br>
+              kaburga ve kırmızı soğan</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Cheesy 950</div>
+              <div class="item-desc">Domates sos, mozzarella, gouda, cheddar,<br>
+              otlu peynir, roka, pesto ve zeytinyağı</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-divider"></div>
+
+        <!-- SAĞ: KIRMIZI ETLER + DENİZ ÜRÜNLERİ -->
+        <div class="col-right">
+
+          <div class="section">
+            <h2 class="section-title">Kırmızı Etler</h2>
+
+            <div class="item">
+              <div class="item-name">Dana Şinitsel 1050</div>
+              <div class="item-desc">Patates salatası eşliğinde</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Kuzu Pirzola 1450</div>
+              <div class="item-desc">Karamelize edilmiş kök sebzeler ve<br>
+              patlıcan beğendi eşliğinde</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Izgara Köfte 1050</div>
+              <div class="item-desc">Patates kızartması ve ızgara sebze eşliğinde</div>
+            </div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Deniz Ürünleri</h2>
+
+            <div class="item">
+              <div class="item-name">Miso Soslu Izgara Levrek 1100</div>
+              <div class="item-desc">Marine edilmiş levrek fileto, patates püresi,<br>
+              ıspanak kavurma</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Izgara Çipura 950</div>
+              <div class="item-desc">Roka, kırmızı soğan ve limon eşliğinde</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Izgara Levrek 1200</div>
+              <div class="item-desc">Roka, kırmızı soğan ve limon eşliğinde</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Izgara Barbun 1000</div>
+              <div class="item-desc">Roka, kırmızı soğan ve limon eşliğinde</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════ SAYFA 3 ════════════════════ -->
+    <div class="menu-page">
+
+      <div class="rl-logo">
+        <img src="../logoroas.png" alt="Milo By Roas" />
+      </div>
+
+      <div class="cols">
+
+        <!-- SOL: BEYAZ ETLER + MAKARNA -->
+        <div class="col-left">
+
+          <div class="section">
+            <h2 class="section-title">Beyaz Etler</h2>
+
+            <div class="item">
+              <div class="item-name">Tavuk Schnitzel 950</div>
+              <div class="item-desc">Çeri domates, roka, patates salatası</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Izgara Tavuk 930</div>
+              <div class="item-desc">Haşlanmış patates, kuşkonmaz, kiraz domates,<br>
+              ızgara tavuk göğsü ve krema sosu eşliğinde</div>
+            </div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Makarna</h2>
+
+            <div class="item">
+              <div class="item-name">Taglietelle della Salute 900</div>
+              <div class="item-desc">Tavuk parçacıkları, napoliten sos,<br>
+              domates, roka, parmesan</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Beş Peynirli Ravioli 780</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Deniz Mahsullü Makarna 1100</div>
+              <div class="item-desc">Deniz mahsülleri (Kalamar, midye,<br>
+              karides), napoliten sos</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Fettuccine al Pesto 880</div>
+              <div class="item-desc">Çam Fıstığı, ceviz, fesleğen, taze<br>
+              baharatlar, parmesan, krema, mantar,<br>
+              tavuk parçacıkları</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Spaghetti Bolonez 950</div>
+              <div class="item-desc">Dana kıyma, domates sos, taze<br>
+              baharatlar, parmesan</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-divider"></div>
+
+        <!-- SAĞ: HAMBURGER + ÇOCUK MENÜSÜ + TATLI -->
+        <div class="col-right">
+
+          <div class="section">
+            <h2 class="section-title">Hamburger</h2>
+
+            <div class="item">
+              <div class="item-name">Smash It! 850</div>
+              <div class="item-desc">Dana eti, eritilmiş peynir ve özel sosumuz</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Cherry Cherry Lady 850</div>
+              <div class="item-desc">Ev yapımı vişne reçeli, Ege tulumu ve dana eti</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Golden Chick 750</div>
+              <div class="item-desc">Kızarmış tavuk kalça, çedar ve sos</div>
+            </div>
+
+            <p class="section-note">*Tüm hamburgerlerimiz patates kızartması ile servis edilmektedir.</p>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Çocuk Menüsü</h2>
+
+            <div class="item"><div class="item-name">Mini Köfte Tabağı 550</div></div>
+            <div class="item"><div class="item-name">Çıtır Tavuk 500</div></div>
+            <div class="item"><div class="item-name">Mini Burger 500</div></div>
+
+            <p class="section-note">*Tüm çocuk menümüz patates kızartması ile servis edilmektedir.</p>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Tatlı</h2>
+
+            <div class="item"><div class="item-name">Meyve Tabağı 450</div></div>
+            <div class="item"><div class="item-name">Milo Cheesecake 530</div></div>
+            <div class="item"><div class="item-name">Dondurmalı Islak Kek 500</div></div>
+            <div class="item"><div class="item-name">Tiramisu 550</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════ SAYFA 4 ════════════════════ -->
+    <div class="menu-page">
+
+      <div class="rl-logo">
+        <img src="../logoroas.png" alt="Milo By Roas" />
+      </div>
+
+      <div class="cols">
+
+        <!-- SOL: SOĞUK İÇECEK + SICAK İÇECEK -->
+        <div class="col-left">
+
+          <div class="section">
+            <h2 class="section-title">Soğuk İçecek</h2>
+
+            <div class="item"><div class="item-name">Su 80 / 160</div></div>
+            <div class="item"><div class="item-name">Meşrubatlar 180</div></div>
+            <div class="item"><div class="item-name">Redbull / Şekersiz Redbull 250</div></div>
+            <div class="item"><div class="item-name">Bodrum Mandalina Gazozu 160</div></div>
+            <div class="item"><div class="item-name">Taze Portakal Suyu 280</div></div>
+            <div class="item"><div class="item-name">Limonata 260</div></div>
+            <div class="item"><div class="item-name">Soda 160</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Sıcak İçecek</h2>
+
+            <div class="item"><div class="item-name">Çay 70</div></div>
+            <div class="item"><div class="item-name">Bitki Çayı 140</div></div>
+            <div class="item"><div class="item-name">Filtre Kahve 220</div></div>
+            <div class="item"><div class="item-name">Türk Kahvesi 180</div></div>
+            <div class="item"><div class="item-name">Espresso 140</div></div>
+            <div class="item"><div class="item-name">Double Shot Espresso 190</div></div>
+            <div class="item"><div class="item-name">Coffee Latte 240</div></div>
+            <div class="item"><div class="item-name">Macchiato 240</div></div>
+            <div class="item"><div class="item-name">Americano 220</div></div>
+            <div class="item"><div class="item-name">Cappuccino 240</div></div>
+          </div>
+
+        </div>
+
+        <div class="col-divider"></div>
+
+        <!-- SAĞ: FROZEN + BİRA + CİN + VODKA -->
+        <div class="col-right">
+
+          <div class="section">
+            <h2 class="section-title">Frozen<br>Alkollü / Alkolsüz</h2>
+
+            <div class="item"><div class="item-name">Strawberry Frozen 850 / 400</div></div>
+            <div class="item"><div class="item-name">Queen Frozen 850 / 400</div></div>
+            <div class="item"><div class="item-name">Melon Frozen 850 / 400</div></div>
+            <div class="item"><div class="item-name">Milo Special 850 / 400</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Bira</h2>
+
+            <div class="item"><div class="item-name">Efes Malt 320</div></div>
+            <div class="item"><div class="item-name">Corona 380</div></div>
+            <div class="item"><div class="item-name">Miller 360</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Cin</h2>
+
+            <div class="item"><div class="item-name">Gordon's London Dry Gin 650</div></div>
+            <div class="item"><div class="item-name">Gordon's Pink Gin 650</div></div>
+            <div class="item"><div class="item-name">Beefeater 690</div></div>
+            <div class="item"><div class="item-name">Gilbey's 650</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Vodka</h2>
+
+            <div class="item"><div class="item-name">Absolut 650</div></div>
+            <div class="item"><div class="item-name">Smirnoff 600</div></div>
+            <div class="item"><div class="item-name">İstanblue 520</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════ SAYFA 5 ════════════════════ -->
+    <div class="menu-page">
+
+      <div class="rl-logo">
+        <img src="../logoroas.png" alt="Milo By Roas" />
+      </div>
+
+      <div class="cols">
+
+        <!-- SOL: LİKÖR + TEKİLA + ROM + VERMUT -->
+        <div class="col-left">
+
+          <div class="section">
+            <h2 class="section-title">Likör</h2>
+            <div class="item"><div class="item-name">Baileys 650</div></div>
+            <div class="item"><div class="item-name">Jägermeister 680</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Tekila</h2>
+            <div class="item"><div class="item-name">Olmeca 700</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Rom</h2>
+            <div class="item"><div class="item-name">Bacardi 620</div></div>
+            <div class="item"><div class="item-name">Captain Morgan 620</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Vermut</h2>
+            <div class="item"><div class="item-name">Martini Bianco 620</div></div>
+            <div class="item"><div class="item-name">Martini Dry 620</div></div>
+          </div>
+
+        </div>
+
+        <div class="col-divider"></div>
+
+        <!-- SAĞ: RAKILAR + KONYAK + VİSKİ -->
+        <div class="col-right">
+
+          <div class="section">
+            <h2 class="section-title">Rakılar Kadeh / Şişe<br><span style="font-size:16px;letter-spacing:4px;">35 CL / 50 CL / 70 CL</span></h2>
+
+            <div class="item"><div class="item-name">Yeni Rakı</div></div>
+            <div class="item"><div class="item-name">Yeni Rakı Yeni Seri</div></div>
+            <div class="item"><div class="item-name">Tekirdağ</div></div>
+            <div class="item"><div class="item-name">Beylerbeyi</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Konyak</h2>
+            <div class="item"><div class="item-name">Cemiyet Kanyak 550</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Viski</h2>
+            <div class="item"><div class="item-name">Johnie Walker Red Label 650</div></div>
+            <div class="item"><div class="item-name">12 Chivas Regal 850</div></div>
+            <div class="item"><div class="item-name">12 Glenfiddich 1100</div></div>
+            <div class="item"><div class="item-name">Jack Daniels 780</div></div>
+            <div class="item"><div class="item-name">Jim Beam 680</div></div>
+            <div class="item"><div class="item-name">Jameson 700</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════ SAYFA 6 ════════════════════ -->
+    <div class="menu-page">
+
+      <div class="rl-logo">
+        <img src="../logoroas.png" alt="Milo By Roas" />
+      </div>
+
+      <div class="cols">
+
+        <!-- SOL: BEYAZ + ROZE + KIRMIZI ŞARAP -->
+        <div class="col-left">
+
+          <div class="section">
+            <h2 class="section-title">Beyaz Şarap</h2>
+            <div class="item"><div class="item-name">Myrina Beyaz – Kadeh 480</div></div>
+            <div class="item"><div class="item-name">Ancyra Sultaniye &amp; Emir 1800</div></div>
+            <div class="item"><div class="item-name">Egeo Sauvignon Blanc 3400</div></div>
+            <div class="item"><div class="item-name">Egeo Chardonnay 3800</div></div>
+            <div class="item"><div class="item-name">Cotes d'Avanos Narince 5200</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Roze Şarap</h2>
+            <div class="item"><div class="item-name">Myrina Rose – Kadeh 480</div></div>
+            <div class="item"><div class="item-name">Ancyra Blush 1800</div></div>
+            <div class="item"><div class="item-name">Egeo Rose 3400</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Kırmızı Şarap</h2>
+            <div class="item"><div class="item-name">Myrina Kırmızı – Kadeh 480</div></div>
+            <div class="item"><div class="item-name">Ancyra Kalecik Karası 1800</div></div>
+            <div class="item"><div class="item-name">Ancyra Boğazkere 1800</div></div>
+            <div class="item"><div class="item-name">Egeo Cabarnet Sauvignon 3800</div></div>
+            <div class="item"><div class="item-name">Pendore Öküzgözü 4500</div></div>
+          </div>
+
+        </div>
+
+        <div class="col-divider"></div>
+
+        <!-- SAĞ: KÖPÜKLÜ ŞARAP + KOKTEYL -->
+        <div class="col-right">
+
+          <div class="section">
+            <h2 class="section-title">Köpüklü Şarap</h2>
+            <div class="item"><div class="item-name">İnci Damlası – Beyaz 3000</div></div>
+            <div class="item"><div class="item-name">Pembe Köpük – Rose 3000</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Kokteyl</h2>
+
+            <div class="item">
+              <div class="item-name">Bodrum Breeze 850</div>
+              <div class="item-desc">Rom, cool lime, ekşi elma</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Aegean Sunset 850</div>
+              <div class="item-desc">Aperol, portakal suyu, zencefil gazozu</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Island 850</div>
+              <div class="item-desc">Rom, Gin, narenciye, lime</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Aperol Spritz 850</div>
+              <div class="item-desc">Aperol, prosecco, soda</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Long Island 950</div>
+              <div class="item-desc">Votka, tekila, rom, cin, triple sec ve kola</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /menu-wrapper -->
 
 </body>
 </html>

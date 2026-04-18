@@ -7,427 +7,759 @@
   <link rel="icon" type="image/png" href="../logoroas.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/base.css" />
-  <link rel="stylesheet" href="../css/animations.css" />
-  <link rel="stylesheet" href="../css/components.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Open+Sans:wdth,wght@75,300;75,600;75,700&family=IBM+Plex+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+
   <style>
-    .menu-hero {
-      padding: 160px 0 80px;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #f4ede3;
+      --cream-d:  #ece3d8;
+      --gold:     #9e7c4a;
+      --text:     #2a2117;
+      --text-mid: #4a3f30;
+      --rule:     #c9b99a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(244,237,227,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+      padding: 10px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topbar a {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color .25s;
+    }
+    .topbar a:hover { color: var(--gold); }
+    .topbar .lang-links { display: flex; gap: 8px; }
+    .topbar .lang-links a {
+      padding: 5px 14px;
+      border: 1px solid var(--rule);
+      color: var(--gold);
+    }
+    .topbar .lang-links a.active,
+    .topbar .lang-links a:hover {
+      background: var(--gold);
+      color: var(--cream);
+      border-color: var(--gold);
+    }
+
+    .menu-wrapper {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 90px 32px 80px;
+    }
+
+    .rl-logo {
       text-align: center;
-      background: linear-gradient(180deg, rgba(28,26,23,0) 0%, var(--dark) 100%),
-                  url('https://www.roashotel.com/wp-content/uploads/2021/05/1622397736_Original-scaled.jpeg') center/cover no-repeat;
-      position: relative;
+      margin-bottom: 64px;
     }
-    .menu-hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(28,26,23,0.65);
+    .rl-logo img {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
     }
-    .menu-hero-content { position: relative; z-index: 1; }
-    .menu-hero-badge {
-      font-size: 9px;
+
+    .menu-page {
+      margin-bottom: 96px;
+    }
+    .menu-page + .menu-page {
+      border-top: 1px solid var(--rule);
+      padding-top: 80px;
+    }
+
+    .cols {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0 56px;
+      align-items: start;
+    }
+    .col-divider {
+      background: var(--rule);
+      align-self: stretch;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+    .section:last-child { margin-bottom: 0; }
+
+    .section-rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 40px auto;
+      width: 100%;
+    }
+
+    .section-title {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 600;
+      font-size: 22px;
       letter-spacing: 5px;
       text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 20px;
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 28px;
     }
-    .menu-hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(42px, 6vw, 72px);
+
+    .item {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+    .item:last-child { margin-bottom: 0; }
+
+    .item-name {
+      font-family: 'Open Sans', sans-serif;
+      font-stretch: condensed;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .item-desc {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 10px;
       font-weight: 300;
-      color: var(--white);
-      line-height: 1.1;
-    }
-    .menu-hero-title em {
       font-style: italic;
-      background: linear-gradient(90deg, var(--gold-light) 0%, #f0ddb8 40%, var(--gold) 60%, var(--gold-light) 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: shimmer 4s linear infinite;
+      color: var(--text-mid);
+      line-height: 1.6;
+      margin-top: 3px;
     }
-    .menu-hero-hours {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-top: 16px;
-    }
-    .lang-switch {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 32px;
-    }
-    .lang-switch a {
-      display: inline-block;
-      padding: 10px 24px;
-      border: 1px solid rgba(184,150,110,0.4);
-      color: var(--gold);
-      text-decoration: none;
+
+    .section-note {
+      font-family: 'IBM Plex Sans', sans-serif;
       font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: all 0.3s;
-    }
-    .lang-switch a:hover,
-    .lang-switch a.active {
-      background: var(--gold);
-      color: var(--dark);
-    }
-    .menu-content { padding: 80px 0 120px; }
-    .menu-section {
-      max-width: 900px;
-      margin: 0 auto 72px;
-      padding: 0 48px;
-    }
-    .menu-section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 8px;
-      letter-spacing: 1px;
-    }
-    .menu-section-subtitle {
-      font-size: 9px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 32px;
-      display: block;
-    }
-    .menu-divider {
-      width: 48px;
-      height: 1px;
-      background: var(--gold);
-      margin: 16px 0 32px;
-    }
-    .menu-items { display: flex; flex-direction: column; gap: 0; }
-    .menu-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(184,150,110,0.12);
-      gap: 24px;
-    }
-    .menu-item:last-child { border-bottom: none; }
-    .menu-item-info { flex: 1; }
-    .menu-item-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 6px;
-      line-height: 1.2;
-    }
-    .menu-item-desc {
-      font-size: 12px;
-      color: var(--text-muted);
-      font-weight: 300;
-      line-height: 1.7;
-      max-width: 500px;
-    }
-    .menu-item-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--gold);
-      white-space: nowrap;
-      padding-top: 2px;
-    }
-    .menu-note {
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-      line-height: 1.8;
+      font-style: italic;
+      color: var(--text-mid);
       text-align: center;
-      margin-top: 48px;
-      padding: 32px;
-      border: 1px solid rgba(184,150,110,0.15);
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-top: 14px;
+      line-height: 1.6;
     }
-    .menu-footer {
-      padding: 48px;
-      text-align: center;
-      border-top: 1px solid rgba(184,150,110,0.15);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-    }
-    .menu-footer a.back-link {
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .menu-footer a.back-link:hover { color: var(--gold); }
-    .footer-instagram {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 2px;
-      transition: color 0.3s;
-    }
-    .footer-instagram:hover { color: var(--gold); }
-    @media (max-width: 768px) {
-      .menu-section { padding: 0 24px; }
-      .menu-item { flex-direction: column; gap: 8px; }
-      .menu-hero { padding: 140px 24px 64px; }
-      .menu-footer { padding: 32px 24px; }
+
+    @media (max-width: 680px) {
+      .cols {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .col-divider { display: none; }
+      .col-right {
+        border-top: 1px solid var(--rule);
+        padding-top: 40px;
+        margin-top: 8px;
+      }
+      .topbar { padding: 10px 16px; }
+      .menu-wrapper { padding: 80px 16px 60px; }
+      .section-title { font-size: 18px; letter-spacing: 4px; }
+      .item-name { font-size: 14px; }
+      .item-desc { font-size: 10px; }
+      .rl-logo img { height: 60px; }
+      .menu-page + .menu-page { padding-top: 56px; margin-bottom: 0; }
     }
   </style>
 </head>
 <body>
 
-  <nav id="navbar" class="scrolled">
-    <a href="../index.html" class="nav-logo">
-      <img src="../logoroas.png" alt="Roas Hotel" />
-    </a>
-    <ul class="nav-links">
-      <li><a href="../index.html#about">About</a></li>
-      <li><a href="../index.html#rooms">Rooms</a></li>
-      <li><a href="../index.html#restaurant">Restaurant</a></li>
-      <li><a href="../index.html#gallery">Gallery</a></li>
-      <li><a href="../index.html#location">Contact</a></li>
-      <li><a href="https://roashotel.rezervasyonal.com" target="_blank" class="nav-cta">Reservation</a></li>
-    </ul>
-  </nav>
-
-  <section class="menu-hero">
-    <div class="menu-hero-content">
-      <span class="menu-hero-badge">Milo By Roas · Bitez, Bodrum</span>
-      <h1 class="menu-hero-title">Daytime <em>Menu</em></h1>
-      <p class="menu-hero-hours">08:00 – 18:00</p>
-      <div class="lang-switch">
-        <a href="gunduzmenu-tr.html">TR</a>
-        <a href="gunduzmenu-en.html" class="active">EN</a>
-      </div>
+  <div class="topbar">
+    <a href="../index.html">← Home</a>
+    <div class="lang-links">
+      <a href="gunduzmenu-tr.html">TR</a>
+      <a href="gunduzmenu-en.html" class="active">EN</a>
     </div>
-  </section>
-
-  <div class="menu-content">
-
-    <!-- BREAKFAST -->
-    <div class="menu-section reveal">
-      <span class="menu-section-subtitle">Morning</span>
-      <h2 class="menu-section-title">Breakfast</h2>
-      <div class="menu-divider"></div>
-      <div class="menu-items">
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Roas Spread Breakfast</div>
-            <div class="menu-item-desc">Seasonal cheeses, olive varieties, fresh tomatoes, cucumber, jams, honey, clotted cream, simit and fresh fruit</div>
-          </div>
-          <div class="menu-item-price">₺ 320</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Menemen</div>
-            <div class="menu-item-desc">Traditional Turkish scrambled eggs with fresh tomatoes and peppers</div>
-          </div>
-          <div class="menu-item-price">₺ 180</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Avocado Toast</div>
-            <div class="menu-item-desc">Sourdough bread, fresh avocado, cherry tomatoes, feta cheese, pomegranate molasses</div>
-          </div>
-          <div class="menu-item-price">₺ 220</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Fried Eggs</div>
-            <div class="menu-item-desc">Two sunny-side up eggs, butter, toast</div>
-          </div>
-          <div class="menu-item-price">₺ 140</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Fresh Fruit Plate</div>
-            <div class="menu-item-desc">A refreshing selection of seasonal fruits</div>
-          </div>
-          <div class="menu-item-price">₺ 160</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- SALADS -->
-    <div class="menu-section reveal">
-      <span class="menu-section-subtitle">Lunch</span>
-      <h2 class="menu-section-title">Salads</h2>
-      <div class="menu-divider"></div>
-      <div class="menu-items">
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Greek Salad</div>
-            <div class="menu-item-desc">Tomatoes, cucumber, olives, onion, peppers, feta cheese, olive oil and oregano</div>
-          </div>
-          <div class="menu-item-price">₺ 220</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Rocket & Parmesan</div>
-            <div class="menu-item-desc">Fresh rocket, shaved parmesan, cherry tomatoes, lemon dressing, black pepper</div>
-          </div>
-          <div class="menu-item-price">₺ 240</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Chicken Caesar Salad</div>
-            <div class="menu-item-desc">Grilled chicken breast, romaine lettuce, croutons, parmesan, caesar dressing</div>
-          </div>
-          <div class="menu-item-price">₺ 280</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Quinoa Bowl</div>
-            <div class="menu-item-desc">Quinoa, grilled vegetables, avocado, chickpeas, lemon-tahini dressing</div>
-          </div>
-          <div class="menu-item-price">₺ 260</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- SANDWICHES -->
-    <div class="menu-section reveal">
-      <span class="menu-section-subtitle">Light Meals</span>
-      <h2 class="menu-section-title">Sandwiches & Wraps</h2>
-      <div class="menu-divider"></div>
-      <div class="menu-items">
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Club Sandwich</div>
-            <div class="menu-item-desc">Grilled chicken, lettuce, tomato, bacon, cheddar, mustard mayo, bread</div>
-          </div>
-          <div class="menu-item-price">₺ 300</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Roas Burger</div>
-            <div class="menu-item-desc">180g beef patty, cheddar, special sauce, caramelized onions, brioche bun, fries</div>
-          </div>
-          <div class="menu-item-price">₺ 380</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Veggie Wrap</div>
-            <div class="menu-item-desc">Grilled vegetables, hummus, fresh greens, labneh, whole wheat lavash</div>
-          </div>
-          <div class="menu-item-price">₺ 240</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Tuna Sandwich</div>
-            <div class="menu-item-desc">Fresh tuna, capers, red onion, dill, lemon mayo, ciabatta</div>
-          </div>
-          <div class="menu-item-price">₺ 320</div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- DRINKS -->
-    <div class="menu-section reveal">
-      <span class="menu-section-subtitle">Daytime</span>
-      <h2 class="menu-section-title">Beverages</h2>
-      <div class="menu-divider"></div>
-      <div class="menu-items">
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Filter Coffee</div>
-            <div class="menu-item-desc">Daily ground, specially blended filter coffee</div>
-          </div>
-          <div class="menu-item-price">₺ 100</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Turkish Tea</div>
-            <div class="menu-item-desc">Brewed tea served in traditional tulip glass</div>
-          </div>
-          <div class="menu-item-price">₺ 60</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Fresh Squeezed Juice</div>
-            <div class="menu-item-desc">Orange, pomegranate or mixed fruit</div>
-          </div>
-          <div class="menu-item-price">₺ 120</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Lemonade</div>
-            <div class="menu-item-desc">Fresh squeezed lemon, mint, sparkling water</div>
-          </div>
-          <div class="menu-item-price">₺ 110</div>
-        </div>
-
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Smoothie</div>
-            <div class="menu-item-desc">Mango-coconut, strawberry-banana or green detox</div>
-          </div>
-          <div class="menu-item-price">₺ 150</div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="menu-note reveal">
-      All prices include VAT. Please inform our team of any allergies or dietary requirements.<br>
-      Menu is subject to seasonal changes.
-    </div>
-
   </div>
 
-  <footer class="menu-footer">
-    <a href="../index.html" class="back-link">← Back to Main Site</a>
-    <a href="https://www.instagram.com/milobyroas" target="_blank" class="footer-instagram">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      @milobyroas
-    </a>
-  </footer>
+  <div class="menu-wrapper">
 
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
-  </script>
+    <!-- ════════════════════ PAGE 1 ════════════════════ -->
+    <div class="menu-page">
+
+      <div class="rl-logo">
+        <img src="../logoroas.png" alt="Milo By Roas" />
+      </div>
+
+      <div class="cols">
+
+        <!-- LEFT: BREAKFAST + SNACKS + HAMBURGERS -->
+        <div class="col-left">
+
+          <div class="section">
+            <h2 class="section-title">Breakfast</h2>
+
+            <div class="item">
+              <div class="item-name">Traditional Turkish Breakfast (For Two) 2000</div>
+              <div class="item-desc">Selection of Turkish cheeses, kaymak, mixed olives, selection<br>
+              of jams, honey, Nutella, dried fruits, walnuts, pancakes,<br>
+              roasted potatoes, börek (filo dough pastry with cheese and<br>
+              Aegean herbs), tomatoes, cucumbers, sucuk, herbs, eggs<br>
+              (boiled, fried, scrambled or menemen), black tea and filter coffee</div>
+            </div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Snacks</h2>
+
+            <div class="item">
+              <div class="item-name">Crispy Chicken with French Fries 650</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Mixed Snack Platter 850</div>
+              <div class="item-desc">Crispy chicken, onion rings, French fries,<br>
+              rolls with pastrami filling, sausage with cocktail sauce</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Milo Sandwich 630</div>
+              <div class="item-desc">Grilled chicken, crispy salami, kasseri cheese and<br>
+              special homemade spicy sauce</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Chicken Wrap 720</div>
+              <div class="item-desc">Served with French fries</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">French Fries 380</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Potato Wedges with Spices 400</div>
+            </div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Hamburgers</h2>
+
+            <div class="item">
+              <div class="item-name">Smash It! 850</div>
+              <div class="item-desc">Smashed beef patty, melted cheese and our signature sauce</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Cherry Cherry Lady 850</div>
+              <div class="item-desc">Homemade cherry jam, Aegean tulum cheese and beef patty</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Golden Chick 750</div>
+              <div class="item-desc">Fried chicken thigh, melted cheddar cheese and sauce</div>
+            </div>
+
+            <p class="section-note">*All our burgers are served with French fries.</p>
+          </div>
+
+        </div>
+
+        <div class="col-divider"></div>
+
+        <!-- RIGHT: SALADS + TOASTS -->
+        <div class="col-right">
+
+          <div class="section">
+            <h2 class="section-title">Salads</h2>
+
+            <div class="item">
+              <div class="item-name">Mediterranean Salad 520</div>
+              <div class="item-desc">Seasonal greens, green olives, tomatoes,<br>
+              Ezine cheese, sauce with olive oil</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Halloumi Salad 680</div>
+              <div class="item-desc">Arugula leaves, roasted aubergine,<br>
+              artichoke hearts, grilled Halloumi</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Chicken Caprese Salad 740</div>
+              <div class="item-desc">Grilled chicken breast, mozzarella, cherry<br>
+              tomatoes, basil, avocado, spinach, balsamic sauce</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Smoked Salmon Quinoa Salad 820</div>
+              <div class="item-desc">Smoked salmon, quinoa seeds, avocado,<br>
+              colorful peppers, garden greens, capers, red onion</div>
+            </div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Toasts</h2>
+
+            <div class="item">
+              <div class="item-name">Cheese Toast 420</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Cheese &amp; Sucuk Toast 480</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Ezine Cheese Toast 470</div>
+              <div class="item-desc">Ezine Cheese, Tomatoes, Pesto</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Smoked Turkey &amp; Eggs Toast 550</div>
+              <div class="item-desc">Kaşar Cheese, Tomatoes, Basil,<br>
+              Omelette, Smoked Turkey</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Double Cheese &amp; Smoked Turkey Toast 580</div>
+              <div class="item-desc">Avocado, Tomatoes, Cheddar and White Cheese,<br>
+              Smoked Turkey</div>
+            </div>
+
+            <p class="section-note">*All our toasts are served with seasonal greens.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════ PAGE 2 ════════════════════ -->
+    <div class="menu-page">
+
+      <div class="rl-logo">
+        <img src="../logoroas.png" alt="Milo By Roas" />
+      </div>
+
+      <div class="cols">
+
+        <!-- LEFT: MAIN DISHES + PASTA -->
+        <div class="col-left">
+
+          <div class="section">
+            <h2 class="section-title">Main Dishes</h2>
+
+            <div class="item">
+              <div class="item-name">Chicken &amp; Veal Schnitzel 950 / 1050</div>
+              <div class="item-desc">Served with potato salad</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Grilled Chicken 930</div>
+              <div class="item-desc">Served with grilled vegetables</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Grilled Meatballs 1050</div>
+              <div class="item-desc">Served with French fries</div>
+            </div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Pasta</h2>
+
+            <div class="item">
+              <div class="item-name">Taglietelle della Salute 900</div>
+              <div class="item-desc">Chicken breast, Neapolitan sauce,<br>
+              arugula, parmesan</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Five Cheese Ravioli 780</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Seafood Pasta 1100</div>
+              <div class="item-desc">Seafood (Calamari, mussel, shrimp),<br>
+              Neapolitan sauce</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Fettuccine al Pesto 880</div>
+              <div class="item-desc">Pine nuts, walnuts, basil, spices,<br>
+              parmesan, cream, mushroom,<br>
+              chicken breast</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Spaghetti Bolognese 950</div>
+              <div class="item-desc">Ground beef, tomato sauce,<br>
+              spices, parmesan</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-divider"></div>
+
+        <!-- RIGHT: PIZZAS + KID'S MENU + DESSERTS -->
+        <div class="col-right">
+
+          <div class="section">
+            <h2 class="section-title">Pizzas</h2>
+
+            <div class="item">
+              <div class="item-name">Margherita 850</div>
+              <div class="item-desc">Tomato sauce, mozzarella, basil,<br>
+              parmesan and pesto</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Burrata Verde 1100</div>
+              <div class="item-desc">Tomato sauce, pesto, burrata, pistachios,<br>
+              mixed greens and olive oil</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Chick BBQ 940</div>
+              <div class="item-desc">Crispy chicken with BBQ sauce, mozzarella,<br>
+              red onion, parsley and coriander</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">The Butcher 1150</div>
+              <div class="item-desc">Tomato sauce, mozzarella, parmesan,<br>
+              selection of smoked meats and red onion</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Cheesy 950</div>
+              <div class="item-desc">Tomato sauce, mozzarella, gouda, cheddar,<br>
+              herb-infused cheese, arugula, pesto and olive oil</div>
+            </div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Kid's Menu</h2>
+
+            <div class="item">
+              <div class="item-name">Mini Meatball Plate 550</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Mini Crispy Chicken 500</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Mini Burger 500</div>
+            </div>
+
+            <p class="section-note">*All children's menus are served with French fries.</p>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Desserts</h2>
+
+            <div class="item">
+              <div class="item-name">Fruit Plate 450</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Milo Cheesecake 530</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Moist Chocolate Cake with Ice Cream 500</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Chef's Tiramisu 550</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════ PAGE 3 ════════════════════ -->
+    <div class="menu-page">
+
+      <div class="rl-logo">
+        <img src="../logoroas.png" alt="Milo By Roas" />
+      </div>
+
+      <div class="cols">
+
+        <!-- LEFT: COLD BEVERAGES + HOT BEVERAGES -->
+        <div class="col-left">
+
+          <div class="section">
+            <h2 class="section-title">Cold Beverages</h2>
+
+            <div class="item"><div class="item-name">Water 80 / 160</div></div>
+            <div class="item"><div class="item-name">Refreshments 180</div></div>
+            <div class="item"><div class="item-name">Redbull / Sugar Free Redbull 250</div></div>
+            <div class="item"><div class="item-name">Bodrum Mandarin Soda 160</div></div>
+            <div class="item"><div class="item-name">Fresh Orange Juice 280</div></div>
+            <div class="item"><div class="item-name">Lemonade 260</div></div>
+            <div class="item"><div class="item-name">Sparkling Water 160</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Hot Beverages</h2>
+
+            <div class="item"><div class="item-name">Black Tea 70</div></div>
+            <div class="item"><div class="item-name">Fruit Tea 140</div></div>
+            <div class="item"><div class="item-name">Filter Coffee 220</div></div>
+            <div class="item"><div class="item-name">Turkish Coffee 180</div></div>
+            <div class="item"><div class="item-name">Espresso 140</div></div>
+            <div class="item"><div class="item-name">Double Shot Espresso 190</div></div>
+            <div class="item"><div class="item-name">Coffee Latte 240</div></div>
+            <div class="item"><div class="item-name">Macchiato 240</div></div>
+            <div class="item"><div class="item-name">Americano 220</div></div>
+            <div class="item"><div class="item-name">Cappuccino 240</div></div>
+          </div>
+
+        </div>
+
+        <div class="col-divider"></div>
+
+        <!-- RIGHT: FROZEN + BEERS + GIN + VODKA -->
+        <div class="col-right">
+
+          <div class="section">
+            <h2 class="section-title">Frozen<br>Alcoholic / Non-Alcoholic</h2>
+
+            <div class="item"><div class="item-name">Strawberry Frozen 850 / 400</div></div>
+            <div class="item"><div class="item-name">Queen Frozen 850 / 400</div></div>
+            <div class="item"><div class="item-name">Melon Frozen 850 / 400</div></div>
+            <div class="item"><div class="item-name">Milo Special 850 / 400</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Beers</h2>
+
+            <div class="item"><div class="item-name">Efes Malt 320</div></div>
+            <div class="item"><div class="item-name">Corona 380</div></div>
+            <div class="item"><div class="item-name">Miller 360</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Gin</h2>
+
+            <div class="item"><div class="item-name">Gordon's London Dry Gin 650</div></div>
+            <div class="item"><div class="item-name">Gordon's Pink Gin 650</div></div>
+            <div class="item"><div class="item-name">Beefeater 690</div></div>
+            <div class="item"><div class="item-name">Gilbey's 650</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Vodka</h2>
+
+            <div class="item"><div class="item-name">Absolut 650</div></div>
+            <div class="item"><div class="item-name">Smirnoff 600</div></div>
+            <div class="item"><div class="item-name">İstanblue 520</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════ PAGE 4 ════════════════════ -->
+    <div class="menu-page">
+
+      <div class="rl-logo">
+        <img src="../logoroas.png" alt="Milo By Roas" />
+      </div>
+
+      <div class="cols">
+
+        <!-- LEFT: LIQUEUR + TEQUILA + RUM + VERMOUTH -->
+        <div class="col-left">
+
+          <div class="section">
+            <h2 class="section-title">Liqueur</h2>
+            <div class="item"><div class="item-name">Baileys 650</div></div>
+            <div class="item"><div class="item-name">Jägermeister 680</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Tequila</h2>
+            <div class="item"><div class="item-name">Olmeca 700</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Rum</h2>
+            <div class="item"><div class="item-name">Bacardi 620</div></div>
+            <div class="item"><div class="item-name">Captain Morgan 620</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Vermouth</h2>
+            <div class="item"><div class="item-name">Martini Bianco 620</div></div>
+            <div class="item"><div class="item-name">Martini Dry 620</div></div>
+          </div>
+
+        </div>
+
+        <div class="col-divider"></div>
+
+        <!-- RIGHT: RAKI + COGNAC + WHISKY -->
+        <div class="col-right">
+
+          <div class="section">
+            <h2 class="section-title">Raki Glass / Bottle<br><span style="font-size:16px;letter-spacing:4px;">35 CL / 50 CL / 70 CL</span></h2>
+
+            <div class="item"><div class="item-name">Yeni Rakı</div></div>
+            <div class="item"><div class="item-name">Yeni Rakı Yeni Seri</div></div>
+            <div class="item"><div class="item-name">Tekirdağ</div></div>
+            <div class="item"><div class="item-name">Beylerbeyi Göbek</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Cognac</h2>
+            <div class="item"><div class="item-name">Cemiyet Kanyak 550</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Whisky</h2>
+            <div class="item"><div class="item-name">Johnie Walker Red Label 650</div></div>
+            <div class="item"><div class="item-name">12 Chivas Regal 850</div></div>
+            <div class="item"><div class="item-name">12 Glenfiddich 1100</div></div>
+            <div class="item"><div class="item-name">Jack Daniels 780</div></div>
+            <div class="item"><div class="item-name">Jim Beam 680</div></div>
+            <div class="item"><div class="item-name">Jameson 700</div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════ PAGE 5 ════════════════════ -->
+    <div class="menu-page">
+
+      <div class="rl-logo">
+        <img src="../logoroas.png" alt="Milo By Roas" />
+      </div>
+
+      <div class="cols">
+
+        <!-- LEFT: WHITE + ROSE + RED WINES -->
+        <div class="col-left">
+
+          <div class="section">
+            <h2 class="section-title">White Wines</h2>
+            <div class="item"><div class="item-name">Myrina Beyaz – Glass 480</div></div>
+            <div class="item"><div class="item-name">Ancyra Sultaniye &amp; Emir 1800</div></div>
+            <div class="item"><div class="item-name">Egeo Sauvignon Blanc 3400</div></div>
+            <div class="item"><div class="item-name">Egeo Chardonnay 3800</div></div>
+            <div class="item"><div class="item-name">Cotes d'Avanos Narince 5200</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Rosé Wines</h2>
+            <div class="item"><div class="item-name">Myrina Rose – Glass 480</div></div>
+            <div class="item"><div class="item-name">Ancyra Blush 1800</div></div>
+            <div class="item"><div class="item-name">Egeo Rose 3400</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Red Wines</h2>
+            <div class="item"><div class="item-name">Myrina Kırmızı – Glass 480</div></div>
+            <div class="item"><div class="item-name">Ancyra Kalecik Karası 1800</div></div>
+            <div class="item"><div class="item-name">Ancyra Boğazkere 1800</div></div>
+            <div class="item"><div class="item-name">Egeo Cabarnet Sauvignon 3800</div></div>
+            <div class="item"><div class="item-name">Pendore Öküzgözü 4500</div></div>
+          </div>
+
+        </div>
+
+        <div class="col-divider"></div>
+
+        <!-- RIGHT: SPARKLING WINE + COCKTAILS -->
+        <div class="col-right">
+
+          <div class="section">
+            <h2 class="section-title">Sparkling Wine</h2>
+            <div class="item"><div class="item-name">İnci Damlası – White 3000</div></div>
+            <div class="item"><div class="item-name">Pembe Köpük – Rose 3000</div></div>
+          </div>
+
+          <hr class="section-rule" />
+
+          <div class="section">
+            <h2 class="section-title">Cocktails</h2>
+
+            <div class="item">
+              <div class="item-name">Bodrum Breeze 850</div>
+              <div class="item-desc">Rum, cool lime, sour apple</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Aegean Sunset 850</div>
+              <div class="item-desc">Aperol, orange juice, ginger ale</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Island 850</div>
+              <div class="item-desc">Rum, gin, citrus, lime</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Aperol Spritz 850</div>
+              <div class="item-desc">Aperol, prosecco, soda</div>
+            </div>
+
+            <div class="item">
+              <div class="item-name">Long Island 950</div>
+              <div class="item-desc">Vodka, tequila, rum, gin, triple sec and cola</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /menu-wrapper -->
 
 </body>
 </html>
