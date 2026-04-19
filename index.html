@@ -3,12 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roas Hotel – Bitez, Bodrum</title>
+  <title>Roas Hotel – Bitez, Bodrum | Butik Otel, Deniz Manzaralı</title>
   <meta name="description" content="Roas Hotel, Bitez Bodrum'un kalbinde denize 200 metre mesafede, eşsiz gün batımı manzarası sunan butik bir Business & Leisure oteldir." />
+  <link rel="canonical" href="https://www.roashotel.com/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Roas Hotel" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:url" content="https://www.roashotel.com/" />
+  <meta property="og:title" content="Roas Hotel – Bitez, Bodrum | Butik Otel" />
+  <meta property="og:description" content="Bitez Bodrum'un kalbinde, denize 200 metre, eşsiz gün batımı manzarası sunan butik Business & Leisure oteli." />
+  <meta property="og:image" content="https://www.roashotel.com/images/hero-bg.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Roas Hotel – Bitez, Bodrum" />
+  <meta name="twitter:description" content="Bitez Bodrum'un kalbinde butik otel, eşsiz gün batımı manzarası." />
+  <meta name="twitter:image" content="https://www.roashotel.com/images/hero-bg.jpg" />
+
+  <meta name="theme-color" content="#1c1a17" />
 
   <link rel="icon" type="image/png" href="logoroas.png" />
+  <link rel="apple-touch-icon" href="logoroas.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="images/hero-bg.jpg" fetchpriority="high" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/base.css" />
@@ -17,12 +39,72 @@
   <link rel="stylesheet" href="css/sections.css" />
   <link rel="stylesheet" href="css/room.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- Structured Data: Hotel -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "name": "Roas Hotel",
+    "description": "Bitez Bodrum'un kalbinde, denize 200 metre mesafede, eşsiz gün batımı manzarası sunan butik bir Business & Leisure oteldir.",
+    "url": "https://www.roashotel.com/",
+    "image": "https://www.roashotel.com/images/hero-bg.jpg",
+    "logo": "https://www.roashotel.com/logoroas.png",
+    "telephone": "+90-252-363-80-75",
+    "email": "info@roashotel.com",
+    "priceRange": "€€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Halilim Cd. No:5",
+      "addressLocality": "Bitez, Bodrum",
+      "addressRegion": "Muğla",
+      "addressCountry": "TR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 37.03,
+      "longitude": 27.37
+    },
+    "starRating": { "@type": "Rating", "ratingValue": "4" },
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Ücretsiz WiFi" },
+      { "@type": "LocationFeatureSpecification", "name": "Restoran" },
+      { "@type": "LocationFeatureSpecification", "name": "Klima" },
+      { "@type": "LocationFeatureSpecification", "name": "Deniz Manzarası" }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/roashotel",
+      "https://www.facebook.com/roashotel"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Milo By Roas",
+    "servesCuisine": ["Akdeniz", "Dünya Mutfağı"],
+    "priceRange": "€€€",
+    "url": "https://www.roashotel.com/#restaurant",
+    "image": "https://www.roashotel.com/images/restaurant-milo.jpg",
+    "telephone": "+90-544-931-95-30",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Halilim Cd. No:5",
+      "addressLocality": "Bitez, Bodrum",
+      "addressRegion": "Muğla",
+      "addressCountry": "TR"
+    },
+    "openingHours": "Mo-Su 07:00-01:00"
+  }
+  </script>
 </head>
 <body>
+  <a id="top" tabindex="-1"></a>
 
   <!-- ── NAVIGATION ─────────────────────────────────────────── -->
-  <nav id="navbar">
-    <a href="#" class="nav-logo">
+  <nav id="navbar" aria-label="Ana navigasyon">
+    <a href="#top" class="nav-logo" aria-label="Roas Hotel Ana Sayfa">
       <img src="logoroas.png" alt="Roas Hotel" />
     </a>
     <ul class="nav-links">
@@ -32,12 +114,12 @@
       <li><a href="#gallery"    data-i18n="nav_galeri">Galeri</a></li>
       <li><a href="#location"   data-i18n="nav_iletisim">İletişim</a></li>
       <li><a href="roas-villas.html" style="color:var(--gold-light);" data-i18n="nav_villas">Roas Villas</a></li>
-      <li><a href="bahcemizden.html" style="color:var(--gold-light);">Bahçemizden</a></li>
-      <li><a href="https://roashotel.rezervasyonal.com" target="_blank" class="nav-cta" data-i18n="nav_rezervasyon">Rezervasyon</a></li>
+      <li><a href="bahcemizden.html" style="color:var(--gold-light);" data-i18n="nav_bahcemizden">Bahçemizden</a></li>
+      <li><a href="https://roashotel.rezervasyonal.com" target="_blank" class="nav-cta" data-i18n="nav_rezervasyon" rel="noopener noreferrer">Rezervasyon</a></li>
     </ul>
-    <button class="lang-toggle" id="langToggle">EN</button>
-    <button class="menu-icon-btn" id="hamburger" aria-label="Menü">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+    <button class="lang-toggle" id="langToggle" aria-label="Switch to English">EN</button>
+    <button class="menu-icon-btn" id="hamburger" aria-label="Menü" aria-controls="mobileMenu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
         <line x1="11" y1="3" x2="11" y2="19"/>
         <line x1="3"  y1="11" x2="19" y2="11"/>
       </svg>
@@ -45,16 +127,16 @@
   </nav>
 
   <!-- ── MOBILE MENU ────────────────────────────────────────── -->
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-close" id="mobileClose">✕</button>
-    <a href="#about"      onclick="closeMobile()">Hakkımızda</a>
-    <a href="#rooms"      onclick="closeMobile()">Odalar</a>
-    <a href="#restaurant" onclick="closeMobile()">Restoran</a>
-    <a href="#gallery"    onclick="closeMobile()">Galeri</a>
-    <a href="#location"   onclick="closeMobile()">İletişim</a>
-    <a href="roas-villas.html" onclick="closeMobile()" style="color:var(--gold);">Roas Villas</a>
-    <a href="bahcemizden.html" onclick="closeMobile()" style="color:var(--gold);">Bahçemizden</a>
-    <a href="https://roashotel.rezervasyonal.com" target="_blank">Rezervasyon</a>
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobil menü">
+    <button class="mobile-close" id="mobileClose" aria-label="Menüyü kapat">✕</button>
+    <a href="#about"      onclick="closeMobile()" data-i18n="nav_hakkimizda">Hakkımızda</a>
+    <a href="#rooms"      onclick="closeMobile()" data-i18n="nav_odalar">Odalar</a>
+    <a href="#restaurant" onclick="closeMobile()" data-i18n="nav_restoran">Restoran</a>
+    <a href="#gallery"    onclick="closeMobile()" data-i18n="nav_galeri">Galeri</a>
+    <a href="#location"   onclick="closeMobile()" data-i18n="nav_iletisim">İletişim</a>
+    <a href="roas-villas.html" onclick="closeMobile()" style="color:var(--gold);" data-i18n="nav_villas">Roas Villas</a>
+    <a href="bahcemizden.html" onclick="closeMobile()" style="color:var(--gold);" data-i18n="nav_bahcemizden">Bahçemizden</a>
+    <a href="https://roashotel.rezervasyonal.com" target="_blank" rel="noopener noreferrer" data-i18n="nav_rezervasyon">Rezervasyon</a>
   </div>
 
   <!-- ── HERO ───────────────────────────────────────────────── -->
@@ -66,7 +148,7 @@
       <h1 class="hero-title">ROAS <em>Hotel</em></h1>
       <p class="hero-subtitle" data-i18n="hero_subtitle">Bitez'in En Güzel Manzarası</p>
       <div class="hero-actions">
-        <a href="https://roashotel.rezervasyonal.com" target="_blank" class="btn-primary" data-i18n="hero_btn1">Rezervasyon Yap</a>
+        <a href="https://roashotel.rezervasyonal.com" target="_blank" class="btn-primary" data-i18n="hero_btn1" rel="noopener noreferrer">Rezervasyon Yap</a>
         <a href="#about" class="btn-outline" data-i18n="hero_btn2">Keşfet</a>
       </div>
     </div>
@@ -85,8 +167,8 @@
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
           <polyline points="9 22 9 12 15 12 15 22"/>
         </svg>
-        <h4>Bitez Kalbinde</h4>
-        <p>Bodrum merkezine 5 km</p>
+        <h3 data-i18n="feat1_title">Bitez Kalbinde</h3>
+        <p data-i18n="feat1_desc">Bodrum merkezine 5 km</p>
       </div>
 
       <div class="feature-item reveal delay-2">
@@ -94,8 +176,8 @@
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
           <circle cx="12" cy="10" r="3"/>
         </svg>
-        <h4>Denize 200 Metre</h4>
-        <p>Bitez Koyu'na yürüme mesafesi</p>
+        <h3 data-i18n="feat2_title">Denize 200 Metre</h3>
+        <p data-i18n="feat2_desc">Bitez Koyu'na yürüme mesafesi</p>
       </div>
 
       <div class="feature-item reveal delay-3">
@@ -110,8 +192,8 @@
           <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"/>
           <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"/>
         </svg>
-        <h4>Gün Batımı Manzarası</h4>
-        <p>Bitez Koyu'nun eşsiz panoraması</p>
+        <h3 data-i18n="feat3_title">Gün Batımı Manzarası</h3>
+        <p data-i18n="feat3_desc">Bitez Koyu'nun eşsiz panoraması</p>
       </div>
 
       <div class="feature-item reveal delay-4">
@@ -121,8 +203,8 @@
           <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
           <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
         </svg>
-        <h4>Kişisel Hizmet</h4>
-        <p>Misafirimizi konuğumuz olarak görürüz</p>
+        <h3 data-i18n="feat4_title">Kişisel Hizmet</h3>
+        <p data-i18n="feat4_desc">Misafirimizi konuğumuz olarak görürüz</p>
       </div>
 
     </div>
@@ -134,48 +216,40 @@
       <div class="about-grid">
 
         <div class="about-images reveal-left">
-          <img class="about-img-main"
-               src="https://www.roashotel.com/wp-content/uploads/2021/05/4C7FBBA3-4141-4A35-B2DD-123DB5C10E82-scaled.jpeg"
-               alt="Roas Hotel" loading="lazy" />
-          <img class="about-img-accent"
-               src="https://www.roashotel.com/wp-content/uploads/2021/05/1622566862_Original-scaled.jpeg"
-               alt="Roas Hotel Detay" loading="lazy" />
+          <picture><source srcset="images/about-main.webp" type="image/webp"><img class="about-img-main"
+               src="images/about-main.jpg"
+               alt="Roas Hotel bahçe manzarası" width="800" height="600" ></picture>
+          <picture><source srcset="images/about-accent.webp" type="image/webp"><img class="about-img-accent"
+               src="images/about-accent.jpg"
+               alt="Roas Hotel iç mekan detay" loading="lazy" width="400" height="300" ></picture>
           <div class="about-badge">
             <strong>5+</strong>
-            <span>Yıllık<br/>Deneyim</span>
+            <span data-i18n="about_badge">Yıllık<br/>Deneyim</span>
           </div>
         </div>
 
         <div class="about-text reveal-right">
-          <span class="section-eyebrow">Hakkımızda</span>
-          <h2 class="section-title">Hayatın <em>Durduğu</em><br/>Nokta</h2>
+          <span class="section-eyebrow" data-i18n="about_eyebrow">Hakkımızda</span>
+          <h2 class="section-title" data-i18n="about_title">Hayatın <em>Durduğu</em><br/>Nokta</h2>
           <div class="divider"></div>
-          <p class="text-muted">
-            Roas Hotel, Bitez'de bir kurum haline gelme idealini; koşulsuz misafir memnuniyeti,
-            hizmet kalitesi, kurumsal kültür ve misafirperverlik anlayışıyla hayata geçiren gerçek
-            anlamda bir Business &amp; Leisure Otel'dir.
-          </p>
-          <p class="text-muted" style="margin-top:16px;">
-            Tesisin tasarımı doğadan ilham almaktadır. Mavi renk tonlarının hâkim olduğu bu
-            atmosferde, misafirlerimiz otelde tek başlarına varmış gibi hissederek yenilenip
-            dinlenirler. Odalarımız, Bitez Koyu'nun benzersiz gün batımı manzaralarını sunar.
-          </p>
+          <p class="text-muted" data-i18n="about_p1">Roas Hotel, Bitez'de bir kurum haline gelme idealini; koşulsuz misafir memnuniyeti, hizmet kalitesi, kurumsal kültür ve misafirperverlik anlayışıyla hayata geçiren gerçek anlamda bir Business &amp; Leisure Otel'dir.</p>
+          <p class="text-muted" style="margin-top:16px;" data-i18n="about_p2">Tesisin tasarımı doğadan ilham almaktadır. Mavi renk tonlarının hâkim olduğu bu atmosferde, misafirlerimiz otelde tek başlarına varmış gibi hissederek yenilenip dinlenirler. Odalarımız, Bitez Koyu'nun benzersiz gün batımı manzaralarını sunar.</p>
           <div class="about-stats">
             <div class="stat-item reveal delay-1">
-              <div class="stat-value">6</div>
-              <div class="stat-label">Oda Tipi</div>
+              <div class="stat-value" data-i18n="stat1">6</div>
+              <div class="stat-label" data-i18n="stat1_lbl">Oda Tipi</div>
             </div>
             <div class="stat-item reveal delay-2">
-              <div class="stat-value">200m</div>
-              <div class="stat-label">Denize Mesafe</div>
+              <div class="stat-value" data-i18n="stat2">200m</div>
+              <div class="stat-label" data-i18n="stat2_lbl">Denize Mesafe</div>
             </div>
             <div class="stat-item reveal delay-3">
-              <div class="stat-value">5km</div>
-              <div class="stat-label">Bodrum Merkeze</div>
+              <div class="stat-value" data-i18n="stat3">5km</div>
+              <div class="stat-label" data-i18n="stat3_lbl">Bodrum Merkeze</div>
             </div>
             <div class="stat-item reveal delay-4">
-              <div class="stat-value">7/24</div>
-              <div class="stat-label">Hizmet</div>
+              <div class="stat-value" data-i18n="stat4">7/24</div>
+              <div class="stat-label" data-i18n="stat4_lbl">Hizmet</div>
             </div>
           </div>
         </div>
@@ -189,18 +263,18 @@
     <div class="container">
       <div class="rooms-header">
         <div class="reveal">
-          <span class="section-eyebrow">Konfor &amp; Tasarım</span>
-          <h2 class="section-title">Odalarımız</h2>
+          <span class="section-eyebrow" data-i18n="rooms_eyebrow">Konfor &amp; Tasarım</span>
+          <h2 class="section-title" data-i18n="rooms_title">Odalarımız</h2>
         </div>
-        <a href="https://roashotel.rezervasyonal.com" target="_blank" class="btn-outline reveal">Tüm Odalar</a>
+        <a href="https://roashotel.rezervasyonal.com" target="_blank" class="btn-outline reveal" rel="noopener noreferrer" data-i18n="rooms_btn">Tüm Odalar</a>
       </div>
 
       <div class="rooms-grid">
 
         <div class="room-card reveal">
-          <img class="room-img"
-               src="https://www.roashotel.com/wp-content/uploads/2021/05/IMG_20210531_092817-1024x768.jpg"
-               alt="Suit Oda" loading="lazy" />
+          <picture><source srcset="images/room-suit.webp" type="image/webp"><img class="room-img"
+               src="images/room-suit.jpg"
+               alt="Suit Oda" loading="lazy" ></picture>
           <div class="room-overlay"></div>
           <div class="room-info">
             <span class="room-category">En Prestijli</span>
@@ -211,9 +285,9 @@
         </div>
 
         <div class="room-card reveal delay-1">
-          <img class="room-img"
-               src="https://www.roashotel.com/wp-content/uploads/2021/05/B814BE64-1284-460A-A614-096B5F424533-1024x768.jpeg"
-               alt="Deluxe Jakuzili" loading="lazy" />
+          <picture><source srcset="images/room-deluxe-jakuzili.webp" type="image/webp"><img class="room-img"
+               src="images/room-deluxe-jakuzili.jpg"
+               alt="Deluxe Jakuzili" loading="lazy" ></picture>
           <div class="room-overlay"></div>
           <div class="room-info">
             <span class="room-category">Romantik</span>
@@ -224,9 +298,9 @@
         </div>
 
         <div class="room-card reveal delay-2">
-          <img class="room-img"
-               src="https://www.roashotel.com/wp-content/uploads/2021/05/IMG_20210531_094659_Original-1024x768.jpeg"
-               alt="Aile Suit" loading="lazy" />
+          <picture><source srcset="images/room-family-suit.webp" type="image/webp"><img class="room-img"
+               src="images/room-family-suit.jpg"
+               alt="Aile Suit" loading="lazy" ></picture>
           <div class="room-overlay"></div>
           <div class="room-info">
             <span class="room-category">Aileler İçin</span>
@@ -237,9 +311,9 @@
         </div>
 
         <div class="room-card reveal delay-1">
-          <img class="room-img"
-               src="https://www.roashotel.com/wp-content/uploads/2021/05/IMG_20210530_085930_Original-1024x768.jpeg"
-               alt="Superior Oda" loading="lazy" />
+          <picture><source srcset="images/room-superior.webp" type="image/webp"><img class="room-img"
+               src="images/room-superior.jpg"
+               alt="Superior Oda" loading="lazy" ></picture>
           <div class="room-overlay"></div>
           <div class="room-info">
             <span class="room-category">Konfor</span>
@@ -250,9 +324,9 @@
         </div>
 
         <div class="room-card reveal delay-2">
-          <img class="room-img"
-               src="https://www.roashotel.com/wp-content/uploads/2021/05/1BB421A3-3196-4F79-9661-6DFB440EAD4F-1024x768.jpeg"
-               alt="Standart Oda" loading="lazy" />
+          <picture><source srcset="images/room-standart.webp" type="image/webp"><img class="room-img"
+               src="images/room-standart.jpg"
+               alt="Standart Oda" loading="lazy" ></picture>
           <div class="room-overlay"></div>
           <div class="room-info">
             <span class="room-category">Klasik</span>
@@ -267,7 +341,7 @@
 
       <!-- Oda Olanakları -->
       <div class="room-amenities-bar reveal">
-        <p class="room-amenities-label">Tüm Odalarda</p>
+        <p class="room-amenities-label" data-i18n="amenities_label">Tüm Odalarda</p>
         <div class="room-amenities-list">
           <div class="ram-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
@@ -312,50 +386,43 @@
     <div class="restaurant-grid">
 
       <div class="restaurant-images">
-        <img class="restaurant-img"
-             src="https://www.roashotel.com/wp-content/uploads/2021/05/B26768B5-85A6-4632-82C9-6D42DED8E085-1-scaled.jpg"
-             alt="Milo By Roas" loading="lazy" />
+        <picture><source srcset="images/restaurant-milo.webp" type="image/webp"><img class="restaurant-img"
+             src="images/restaurant-milo.jpg"
+             alt="Milo By Roas" loading="lazy" ></picture>
         <div class="restaurant-img-overlay"></div>
       </div>
 
       <div class="restaurant-content reveal-right">
-        <span class="section-eyebrow">À La Carte</span>
+        <span class="section-eyebrow" data-i18n="rest_eyebrow">À La Carte</span>
         <h2 class="section-title">Milo<br/><em>By Roas</em></h2>
         <div class="divider"></div>
-        <p class="text-muted">
-          Milo By Roas, misafirperverlikten ödün vermeyen hizmet anlayışı ve dünya mutfağının en
-          güzel örneklerini yenilikçi bir yorumla sunarken, eşsiz deniz manzarasıyla birleşen özel
-          bir ambiyans yaratır.
-        </p>
-        <p class="text-muted" style="margin-top:12px;">
-          Klasik müzik, caz geceleri ve piyano performanslarıyla zenginleşen atmosferinde, sabah
-          kahvaltısından gece geç saatlere kadar lezzetin ayrıcalığını yaşayın.
-        </p>
+        <p class="text-muted" data-i18n="rest_p1">Milo By Roas, misafirperverlikten ödün vermeyen hizmet anlayışı ve dünya mutfağının en güzel örneklerini yenilikçi bir yorumla sunarken, eşsiz deniz manzarasıyla birleşen özel bir ambiyans yaratır.</p>
+        <p class="text-muted" style="margin-top:12px;" data-i18n="rest_p2">Klasik müzik, caz geceleri ve piyano performanslarıyla zenginleşen atmosferinde, sabah kahvaltısından gece geç saatlere kadar lezzetin ayrıcalığını yaşayın.</p>
         <div class="restaurant-hours">
           <div class="hours-item">
-            <span class="hours-label">Kahvaltı</span>
+            <span class="hours-label" data-i18n="rest_lbl1">Kahvaltı</span>
             <div class="hours-value">07:00</div>
           </div>
           <div class="hours-item">
-            <span class="hours-label">Kapanış</span>
+            <span class="hours-label" data-i18n="rest_lbl2">Kapanış</span>
             <div class="hours-value">01:00</div>
           </div>
           <div class="hours-item">
-            <span class="hours-label">WhatsApp Rezervasyon</span>
+            <span class="hours-label" data-i18n="rest_lbl3">WhatsApp Rezervasyon</span>
             <div class="hours-value" style="font-size:15px;">
               <a href="https://wa.me/905449319530" style="color:var(--gold);text-decoration:none;">+90 544 931 9530</a>
             </div>
           </div>
         </div>
-        <a href="https://wa.me/905449319530" target="_blank" class="btn-primary" style="margin-top:32px;">Masa Rezervasyonu</a>
+        <a href="https://wa.me/905449319530" target="_blank" class="btn-primary" style="margin-top:32px;" rel="noopener noreferrer" data-i18n="rest_btn">Masa Rezervasyonu</a>
 
         <div style="margin-top:32px;padding-top:32px;border-top:1px solid rgba(184,150,110,0.2);">
-          <span style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px;">Menü</span>
+          <span style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px;" data-i18n="menu_label">Menü</span>
           <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
 
             <div style="display:flex;align-items:center;gap:20px;">
               <div style="min-width:140px;">
-                <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--white);display:block;line-height:1.2;">Gündüz Menü</span>
+                <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--white);display:block;line-height:1.2;" data-i18n="menu_day">Gündüz Menü</span>
                 <span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">08:00 – 18:00</span>
               </div>
               <div style="display:flex;gap:8px;">
@@ -366,7 +433,7 @@
 
             <div style="display:flex;align-items:center;gap:20px;">
               <div style="min-width:140px;">
-                <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--white);display:block;line-height:1.2;">Akşam Menü</span>
+                <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--white);display:block;line-height:1.2;" data-i18n="menu_evening">Akşam Menü</span>
                 <span style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);">18:00 – 00:00</span>
               </div>
               <div style="display:flex;gap:8px;">
@@ -376,7 +443,7 @@
             </div>
 
           </div>
-          <a href="https://www.instagram.com/milobyroas" target="_blank" style="display:inline-flex;align-items:center;gap:10px;color:var(--text-muted);text-decoration:none;font-size:14px;letter-spacing:2px;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">
+          <a href="https://www.instagram.com/milobyroas" target="_blank" style="display:inline-flex;align-items:center;gap:10px;color:var(--text-muted);text-decoration:none;font-size:14px;letter-spacing:2px;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'" rel="noopener noreferrer">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             @milobyroas
           </a>
@@ -391,37 +458,37 @@
     <div class="container">
 
       <div class="gallery-header reveal">
-        <span class="section-eyebrow">Galeri</span>
-        <h2 class="section-title">Roas <em>Dünyası</em></h2>
+        <span class="section-eyebrow" data-i18n="gallery_eyebrow">Galeri</span>
+        <h2 class="section-title" data-i18n="gallery_title">Roas <em>Dünyası</em></h2>
         <div class="divider"></div>
       </div>
 
       <div class="gallery-grid">
-        <div class="gallery-item reveal-scale"         onclick="openLightbox(0)"><img src="https://www.roashotel.com/wp-content/uploads/2021/05/1622397736_Original-scaled.jpeg"                     alt="Roas Hotel" loading="lazy" /></div>
-        <div class="gallery-item reveal-scale delay-1" onclick="openLightbox(1)"><img src="https://www.roashotel.com/wp-content/uploads/2021/05/4C7FBBA3-4141-4A35-B2DD-123DB5C10E82-scaled.jpeg"     alt="Roas Hotel" loading="lazy" /></div>
-        <div class="gallery-item reveal-scale delay-2" onclick="openLightbox(2)"><img src="https://www.roashotel.com/wp-content/uploads/2021/05/1622400252_Original-scaled.jpeg"                      alt="Roas Hotel" loading="lazy" /></div>
-        <div class="gallery-item reveal-scale delay-3" onclick="openLightbox(3)"><img src="https://www.roashotel.com/wp-content/uploads/2021/05/IMG_9586_Original-scaled.jpeg"                        alt="Roas Hotel" loading="lazy" /></div>
-        <div class="gallery-item reveal-scale delay-1" onclick="openLightbox(4)"><img src="https://www.roashotel.com/wp-content/uploads/2021/05/1622753344_Original-scaled.jpeg"                      alt="Roas Hotel" loading="lazy" /></div>
-        <div class="gallery-item reveal-scale delay-2" onclick="openLightbox(5)"><img src="https://www.roashotel.com/wp-content/uploads/2021/05/B26768B5-85A6-4632-82C9-6D42DED8E085-1-scaled.jpg"   alt="Roas Hotel" loading="lazy" /></div>
-        <div class="gallery-item reveal-scale delay-3" onclick="openLightbox(6)"><img src="https://www.roashotel.com/wp-content/uploads/2021/05/1622567338_Original-scaled.jpeg"                      alt="Roas Hotel" loading="lazy" /></div>
+        <div class="gallery-item reveal-scale"         onclick="openLightbox(0)"><picture><source srcset="images/gallery-1.webp" type="image/webp"><img src="images/gallery-1.jpg"                     alt="Roas Hotel" loading="lazy" ></picture></div>
+        <div class="gallery-item reveal-scale delay-1" onclick="openLightbox(1)"><picture><source srcset="images/about-main.webp" type="image/webp"><img src="images/about-main.jpg"     alt="Roas Hotel" loading="lazy" ></picture></div>
+        <div class="gallery-item reveal-scale delay-2" onclick="openLightbox(2)"><picture><source srcset="images/gallery-3.webp" type="image/webp"><img src="images/gallery-3.jpg"                      alt="Roas Hotel" loading="lazy" ></picture></div>
+        <div class="gallery-item reveal-scale delay-3" onclick="openLightbox(3)"><picture><source srcset="images/gallery-4.webp" type="image/webp"><img src="images/gallery-4.jpg"                        alt="Roas Hotel" loading="lazy" ></picture></div>
+        <div class="gallery-item reveal-scale delay-1" onclick="openLightbox(4)"><picture><source srcset="images/gallery-5.webp" type="image/webp"><img src="images/gallery-5.jpg"                      alt="Roas Hotel" loading="lazy" ></picture></div>
+        <div class="gallery-item reveal-scale delay-2" onclick="openLightbox(5)"><picture><source srcset="images/restaurant-milo.webp" type="image/webp"><img src="images/restaurant-milo.jpg"   alt="Roas Hotel" loading="lazy" ></picture></div>
+        <div class="gallery-item reveal-scale delay-3" onclick="openLightbox(6)"><picture><source srcset="images/gallery-7.webp" type="image/webp"><img src="images/gallery-7.jpg"                      alt="Roas Hotel" loading="lazy" ></picture></div>
       </div>
 
     </div>
   </section>
 
   <!-- ── LIGHTBOX ───────────────────────────────────────────── -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-    <button class="lightbox-prev"  onclick="changeLightbox(-1)">‹</button>
-    <img id="lightboxImg" src="" alt="Galeri" />
-    <button class="lightbox-next"  onclick="changeLightbox(1)">›</button>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Görsel galeri">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Kapat">✕</button>
+    <button class="lightbox-prev"  onclick="changeLightbox(-1)" aria-label="Önceki görsel">‹</button>
+    <img id="lightboxImg" src="" alt="Galeri görseli" />
+    <button class="lightbox-next"  onclick="changeLightbox(1)" aria-label="Sonraki görsel">›</button>
   </div>
 
   <!-- ── BOOKING BANNER ─────────────────────────────────────── -->
   <div class="booking-banner reveal">
-    <h2>Bitez'in En Güzel Manzarası</h2>
-    <p>Gün batımını odanızdan izleyin, Ege'nin tadını çıkarın</p>
-    <a href="https://roashotel.rezervasyonal.com" target="_blank" class="btn-dark">Hemen Rezervasyon Yapın</a>
+    <h2 data-i18n="booking_title">Bitez'in En Güzel Manzarası</h2>
+    <p data-i18n="booking_sub">Gün batımını odanızdan izleyin, Ege'nin tadını çıkarın</p>
+    <a href="https://roashotel.rezervasyonal.com" target="_blank" class="btn-dark" rel="noopener noreferrer" data-i18n="booking_btn">Hemen Rezervasyon Yapın</a>
   </div>
 
   <!-- ── LOCATION / CONTACT ─────────────────────────────────── -->
@@ -430,8 +497,8 @@
       <div class="location-grid">
 
         <div class="location-details reveal-left">
-          <span class="section-eyebrow">Bize Ulaşın</span>
-          <h2 class="section-title">İletişim &amp;<br/><em>Konum</em></h2>
+          <span class="section-eyebrow" data-i18n="contact_eyebrow">Bize Ulaşın</span>
+          <h2 class="section-title" data-i18n="contact_title">İletişim &amp;<br/><em>Konum</em></h2>
           <div class="divider"></div>
           <ul class="contact-list">
             <li>
@@ -460,22 +527,22 @@
                 <line x1="8" y1="21" x2="16" y2="21"/>
                 <line x1="12" y1="17" x2="12" y2="21"/>
               </svg>
-              <a href="https://www.instagram.com/roashotel" target="_blank">@roashotel</a>
+              <a href="https://www.instagram.com/roashotel" target="_blank" rel="noopener noreferrer">@roashotel</a>
             </li>
           </ul>
           <div class="checkin-bar">
             <div class="checkin-item">
-              <span class="checkin-label">Check-in</span>
+              <span class="checkin-label" data-i18n="checkin_lbl">Check-in</span>
               <div class="checkin-value">13:00</div>
             </div>
             <div class="checkin-item">
-              <span class="checkin-label">Check-out</span>
+              <span class="checkin-label" data-i18n="checkout_lbl">Check-out</span>
               <div class="checkin-value">10:00</div>
             </div>
             <div class="checkin-item">
-              <span class="checkin-label">Rezervasyon</span>
+              <span class="checkin-label" data-i18n="rez_lbl">Rezervasyon</span>
               <div class="checkin-value" style="font-size:13px;">
-                <a href="https://roashotel.rezervasyonal.com" target="_blank" style="color:var(--gold);text-decoration:none;">Online</a>
+                <a href="https://roashotel.rezervasyonal.com" target="_blank" style="color:var(--gold);text-decoration:none;" rel="noopener noreferrer">Online</a>
               </div>
             </div>
           </div>
@@ -504,22 +571,22 @@
           <a href="#" class="nav-logo">
             <img src="logoroas.png" alt="Roas Hotel" />
           </a>
-          <p>Bitez Bodrum'un kalbinde, Ege'nin eşsiz gün batımı manzarası eşliğinde unutulmaz bir konaklama deneyimi.</p>
+          <p data-i18n="footer_desc">Bitez Bodrum'un kalbinde, Ege'nin eşsiz gün batımı manzarası eşliğinde unutulmaz bir konaklama deneyimi.</p>
           <div class="footer-social">
-            <a href="https://www.instagram.com/roashotel" target="_blank" class="social-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/roashotel" target="_blank" class="social-link" aria-label="Instagram" rel="noopener noreferrer">
               <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
-            <a href="https://www.facebook.com/roashotel" target="_blank" class="social-link" aria-label="Facebook">
+            <a href="https://www.facebook.com/roashotel" target="_blank" class="social-link" aria-label="Facebook" rel="noopener noreferrer">
               <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
-            <a href="https://www.tripadvisor.com/Hotel_Review-g297986-d21564832-Reviews-Roas_Hotel-Bodrum_Mugla_Province_Turkish_Aegean_Coast.html" target="_blank" class="social-link" aria-label="TripAdvisor">
+            <a href="https://www.tripadvisor.com/Hotel_Review-g297986-d21564832-Reviews-Roas_Hotel-Bodrum_Mugla_Province_Turkish_Aegean_Coast.html" target="_blank" class="social-link" aria-label="TripAdvisor" rel="noopener noreferrer">
               <svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 2C8.13 2 4.87 3.63 2.64 6.21L0 6c1.63 1.63 2.96 3.59 3.84 5.77C3.3 13.04 3 14.49 3 16c0 4.97 4.03 9 9 9s9-4.03 9-9c0-1.51-.3-2.96-.84-4.23C21.04 9.59 22.37 7.63 24 6l-2.64.21C19.13 3.63 15.87 2 12 2zm-4 12a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm8 0a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/></svg>
             </a>
           </div>
         </div>
 
         <div class="footer-col">
-          <h5>Sayfalar</h5>
+          <h3 class="footer-col-title" data-i18n="footer_pages">Sayfalar</h3>
           <ul class="footer-links">
             <li><a href="#about">Hakkımızda</a></li>
             <li><a href="#rooms">Odalar</a></li>
@@ -530,31 +597,31 @@
         </div>
 
         <div class="footer-col">
-          <h5>Odalar</h5>
+          <h3 class="footer-col-title" data-i18n="footer_rooms">Odalar</h3>
           <ul class="footer-links">
-            <li><a href="https://roashotel.rezervasyonal.com" target="_blank">Standart Oda</a></li>
-            <li><a href="https://roashotel.rezervasyonal.com" target="_blank">Superior Oda</a></li>
-            <li><a href="https://roashotel.rezervasyonal.com" target="_blank">Deluxe Jakuzili</a></li>
-            <li><a href="https://roashotel.rezervasyonal.com" target="_blank">Suit Oda</a></li>
-            <li><a href="https://roashotel.rezervasyonal.com" target="_blank">Aile Suit</a></li>
+            <li><a href="https://roashotel.rezervasyonal.com" target="_blank" rel="noopener noreferrer">Standart Oda</a></li>
+            <li><a href="https://roashotel.rezervasyonal.com" target="_blank" rel="noopener noreferrer">Superior Oda</a></li>
+            <li><a href="https://roashotel.rezervasyonal.com" target="_blank" rel="noopener noreferrer">Deluxe Jakuzili</a></li>
+            <li><a href="https://roashotel.rezervasyonal.com" target="_blank" rel="noopener noreferrer">Suit Oda</a></li>
+            <li><a href="https://roashotel.rezervasyonal.com" target="_blank" rel="noopener noreferrer">Aile Suit</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h5>İletişim</h5>
+          <h3 class="footer-col-title" data-i18n="footer_contact">İletişim</h3>
           <ul class="footer-links">
             <li><a href="tel:+902523638075">0 (252) 363 80 75</a></li>
             <li><a href="mailto:info@roashotel.com">info@roashotel.com</a></li>
-            <li><a href="https://wa.me/905449319530" target="_blank">WhatsApp Rezervasyon</a></li>
+            <li><a href="https://wa.me/905449319530" target="_blank" rel="noopener noreferrer">WhatsApp Rezervasyon</a></li>
             <li style="color:var(--text-muted);font-size:13px;font-weight:300;line-height:1.5;">Halilim Cd. No:5<br/>Bitez Bodrum</li>
           </ul>
         </div>
 
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Roas Hotel. Tüm hakları saklıdır.</p>
+        <p>© <span id="copyYear">2026</span> Roas Hotel. <span data-i18n="footer_copy_tail">Tüm hakları saklıdır.</span></p>
         <div style="display:flex;gap:20px;align-items:center;">
-          <a href="kvkk.html" style="color:var(--text-muted);font-size:11px;text-decoration:none;transition:color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">KVKK Aydınlatma Metni</a>
+          <a href="kvkk.html" class="footer-legal-link" data-i18n="footer_kvkk">KVKK Aydınlatma Metni</a>
           <span style="color:var(--text-muted);font-size:11px;">Halilim Cd. No:5 Bitez Bodrum – MUĞLA</span>
         </div>
       </div>
@@ -562,9 +629,16 @@
   </footer>
 
   <!-- ── WHATSAPP FLOAT ──────────────────────────────────────── -->
-  <a href="https://wa.me/905449319530" class="whatsapp-float" target="_blank" aria-label="WhatsApp ile İletişim">
+  <a href="https://wa.me/905449319530" class="whatsapp-float" target="_blank" aria-label="WhatsApp ile İletişim" rel="noopener noreferrer">
     <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
   </a>
+
+
+  <!-- ── COOKIE CONSENT ─────────────────────────────────────── -->
+  <div id="cookieConsent" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Çerez bilgilendirme" hidden>
+    <p data-i18n="cookie_text">Sitemiz, deneyiminizi iyileştirmek için çerez kullanır. Devam ederek <a href="kvkk.html">KVKK Aydınlatma Metni</a>'ni kabul etmiş olursunuz.</p>
+    <button id="cookieAccept" class="cookie-accept" data-i18n="cookie_accept">Kabul Ediyorum</button>
+  </div>
 
   <script src="js/main.js"></script>
   <script src="js/i18n.js"></script>

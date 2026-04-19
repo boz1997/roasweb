@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://roashotel.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://roashotel.com/roas-villas.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://roashotel.com/bahcemizden.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://roashotel.com/odalar/suit-oda.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roashotel.com/odalar/deluxe-jakuzili.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roashotel.com/odalar/family-suit.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roashotel.com/odalar/superior-oda.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roashotel.com/odalar/standart-oda.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://roashotel.com/menu/gunduzmenu-tr.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://roashotel.com/menu/gunduzmenu-en.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://roashotel.com/menu/aksammenu-tr.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://roashotel.com/menu/aksammenu-en.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://roashotel.com/kvkk.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

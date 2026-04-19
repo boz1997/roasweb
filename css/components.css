@@ -241,7 +241,7 @@ nav.scrolled {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('https://www.roashotel.com/wp-content/uploads/2021/05/7BD276D2-0C84-4D41-9ADB-F991C688DCE6-scaled.jpeg');
+  background-image: url('../images/hero-bg.jpg');
   background-size: cover;
   background-position: center;
   transform: scale(1.08);

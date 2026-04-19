@@ -880,6 +880,18 @@
       .b-gallery-mobile img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
     }
   </style>
+  <link rel="canonical" href="https://roashotel.com/bahcemizden.html" />
+  <meta name="theme-color" content="#1c1a17" />
+  <link rel="apple-touch-icon" href="logoroas.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bahçemizden — Roas Hotel" />
+  <meta property="og:description" content="Roas Hotel Bahçemizden: Bitez bahçesinden taze ürünlerle hazırlanan lezzetler." />
+  <meta property="og:url" content="https://roashotel.com/bahcemizden.html" />
+  <meta property="og:image" content="https://roashotel.com/images/hero-bg.jpg" />
+  <meta property="og:locale" content="tr_TR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bahçemizden — Roas Hotel" />
+  <meta name="twitter:description" content="Roas Hotel Bahçemizden: Bitez bahçesinden taze ürünlerle hazırlanan lezzetler." />
 </head>
 <body>
 
@@ -888,12 +900,16 @@
     <a href="index.html" class="b-nav-logo">
       <img src="logoroas.png" alt="Roas Hotel" />
     </a>
-    <a href="index.html" class="b-nav-back">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path d="M19 12H5M12 5l-7 7 7 7"/>
-      </svg>
-      Roas Hotel
-    </a>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a href="index.html" class="b-nav-back" data-i18n="bahce_nav_back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        Roas Hotel
+      </a>
+      <button id="langToggle" aria-label="Switch to English"
+              style="background:transparent;border:1px solid rgba(249,244,236,0.25);color:var(--parchment);font-size:10px;font-weight:500;letter-spacing:2px;padding:6px 12px;cursor:pointer;transition:all .3s;border-radius:2px;">EN</button>
+    </div>
   </div>
 
   <!-- ── HERO ── -->
@@ -902,19 +918,19 @@
     <div class="b-hero-overlay"></div>
     <div class="b-hero-content">
       <div class="b-brand-badge">
-        <span>Cevriyenin Bahçesi</span>
+        <span data-i18n="bahce_brand">Cevriyenin Bahçesi</span>
       </div>
       <h1 class="b-hero-title">Bodrum <em>Mandarin</em><br>Kurusu</h1>
       <p class="b-hero-sub">El Yapımı &nbsp;·&nbsp; Katkısız &nbsp;·&nbsp; Sınırlı Üretim</p>
       <div class="b-hero-cta">
         <a href="https://wa.me/905449319530?text=Merhaba,%20Bodrum%20Mandarin%20Kurusu%20hakkında%20bilgi%20almak%20istiyorum."
-           target="_blank" class="b-btn-primary">
+           target="_blank" class="b-btn-primary" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
-          Sipariş & Bilgi
+          <span data-i18n="bahce_btn_order">Sipariş &amp; Bilgi</span>
         </a>
-        <a href="https://www.instagram.com/cevriyenin.mutfagi" target="_blank" class="b-btn-outline">
+        <a href="https://www.instagram.com/cevriyenin.mutfagi" target="_blank" class="b-btn-outline" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
             <circle cx="12" cy="12" r="5"/>
@@ -925,7 +941,7 @@
       </div>
     </div>
     <div class="b-scroll">
-      <span>Keşfet</span>
+      <span data-i18n="bahce_btn_story">Keşfet</span>
       <div class="b-scroll-line"></div>
     </div>
   </section>
@@ -934,7 +950,7 @@
   <div class="b-story">
     <div class="b-story-img reveal-left">
       <div class="b-story-img-inner">
-        <img src="mutfak/urunler-sade.jpg" alt="Bodrum Mandarin Kurusu — El Yapımı Katkısız" />
+        <picture><source srcset="mutfak/urunler-sade.webp" type="image/webp"><img src="mutfak/urunler-sade.jpg" alt="Bodrum Mandarin Kurusu — El Yapımı Katkısız" ></picture>
       </div>
       <div class="b-story-img-badge">
         <strong>100%</strong>
@@ -1062,20 +1078,20 @@
     </div>
     <div class="b-gallery-grid">
       <div class="b-gallery-item reveal-scale">
-        <img src="mutfak/urunler.jpg" alt="Cevriyenin Bahçesi — Mandarin Kurusu" />
+        <picture><source srcset="mutfak/urunler.webp" type="image/webp"><img src="mutfak/urunler.jpg" alt="Cevriyenin Bahçesi — Mandarin Kurusu" ></picture>
       </div>
       <div class="b-gallery-item reveal delay-1">
-        <img src="mutfak/mutfakta.jpg" alt="Doğal Mandarin Kurusu Çay" />
+        <picture><source srcset="mutfak/mutfakta.webp" type="image/webp"><img src="mutfak/mutfakta.jpg" alt="Doğal Mandarin Kurusu Çay" ></picture>
       </div>
       <div class="b-gallery-item reveal delay-2">
-        <img src="mutfak/urunler-sade.jpg" alt="Mandarin Kurusu Paket" />
+        <picture><source srcset="mutfak/urunler-sade.webp" type="image/webp"><img src="mutfak/urunler-sade.jpg" alt="Mandarin Kurusu Paket" ></picture>
       </div>
       <!-- Desktop'ta masada.jpg, mobilde toplu.jpg -->
       <div class="b-gallery-item b-gallery-desktop reveal delay-3">
-        <img src="mutfak/masada.jpg" alt="Bodrum Mandarin Kurusu Masada" />
+        <picture><source srcset="mutfak/masada.webp" type="image/webp"><img src="mutfak/masada.jpg" alt="Bodrum Mandarin Kurusu Masada" ></picture>
       </div>
       <div class="b-gallery-item b-gallery-mobile reveal delay-3">
-        <img src="mutfak/toplu.jpg" alt="Cevriyenin Bahçesi — Ürün Kolajı" />
+        <picture><source srcset="mutfak/toplu.webp" type="image/webp"><img src="mutfak/toplu.jpg" alt="Cevriyenin Bahçesi — Ürün Kolajı" ></picture>
       </div>
     </div>
   </div>
@@ -1121,7 +1137,7 @@
   <div class="b-insta">
     <div class="b-insta-header reveal">
       <h2 class="b-insta-title">Bizi Instagram'da<br>takip edin</h2>
-      <a href="https://www.instagram.com/cevriyenin.mutfagi" target="_blank" class="b-insta-handle">
+      <a href="https://www.instagram.com/cevriyenin.mutfagi" target="_blank" class="b-insta-handle" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
           <circle cx="12" cy="12" r="5"/>
@@ -1135,8 +1151,8 @@
 
       <!-- Desktop: 4'lü yan yana grid -->
       <div class="b-insta-grid">
-        <a href="https://www.instagram.com/p/DVojsNNDJq3/" target="_blank" class="b-insta-grid-item">
-          <img src="mutfak/insta1.jpg" alt="@cevriyenin.mutfagi" />
+        <a href="https://www.instagram.com/p/DVojsNNDJq3/" target="_blank" class="b-insta-grid-item" rel="noopener noreferrer">
+          <picture><source srcset="mutfak/insta1.webp" type="image/webp"><img src="mutfak/insta1.jpg" alt="@cevriyenin.mutfagi" ></picture>
           <div class="b-insta-grid-overlay">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -1146,8 +1162,8 @@
             <span>Instagram'da Gör</span>
           </div>
         </a>
-        <a href="https://www.instagram.com/p/DVTvJlpDNB1/" target="_blank" class="b-insta-grid-item">
-          <img src="mutfak/insta2.jpg" alt="@cevriyenin.mutfagi" />
+        <a href="https://www.instagram.com/p/DVTvJlpDNB1/" target="_blank" class="b-insta-grid-item" rel="noopener noreferrer">
+          <picture><source srcset="mutfak/insta2.webp" type="image/webp"><img src="mutfak/insta2.jpg" alt="@cevriyenin.mutfagi" ></picture>
           <div class="b-insta-grid-overlay">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -1157,8 +1173,8 @@
             <span>Instagram'da Gör</span>
           </div>
         </a>
-        <a href="https://www.instagram.com/p/DVBUhHiDNl8/" target="_blank" class="b-insta-grid-item">
-          <img src="mutfak/insta3.jpg" alt="@cevriyenin.mutfagi" />
+        <a href="https://www.instagram.com/p/DVBUhHiDNl8/" target="_blank" class="b-insta-grid-item" rel="noopener noreferrer">
+          <picture><source srcset="mutfak/insta3.webp" type="image/webp"><img src="mutfak/insta3.jpg" alt="@cevriyenin.mutfagi" ></picture>
           <div class="b-insta-grid-overlay">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -1168,8 +1184,8 @@
             <span>Instagram'da Gör</span>
           </div>
         </a>
-        <a href="https://www.instagram.com/p/DVg3apEjE7h/" target="_blank" class="b-insta-grid-item">
-          <img src="mutfak/insta4.jpg" alt="@cevriyenin.mutfagi" />
+        <a href="https://www.instagram.com/p/DVg3apEjE7h/" target="_blank" class="b-insta-grid-item" rel="noopener noreferrer">
+          <picture><source srcset="mutfak/insta4.webp" type="image/webp"><img src="mutfak/insta4.jpg" alt="@cevriyenin.mutfagi" ></picture>
           <div class="b-insta-grid-overlay">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -1184,16 +1200,16 @@
       <!-- Mobil: fade slideshow -->
       <div class="b-insta-slideshow" id="instaSlideshow">
         <div class="b-insta-slide active">
-          <img src="mutfak/insta1.jpg" alt="@cevriyenin.mutfagi" />
+          <picture><source srcset="mutfak/insta1.webp" type="image/webp"><img src="mutfak/insta1.jpg" alt="@cevriyenin.mutfagi" ></picture>
         </div>
         <div class="b-insta-slide">
-          <img src="mutfak/insta2.jpg" alt="@cevriyenin.mutfagi" />
+          <picture><source srcset="mutfak/insta2.webp" type="image/webp"><img src="mutfak/insta2.jpg" alt="@cevriyenin.mutfagi" ></picture>
         </div>
         <div class="b-insta-slide">
-          <img src="mutfak/insta3.jpg" alt="@cevriyenin.mutfagi" />
+          <picture><source srcset="mutfak/insta3.webp" type="image/webp"><img src="mutfak/insta3.jpg" alt="@cevriyenin.mutfagi" ></picture>
         </div>
         <div class="b-insta-slide">
-          <img src="mutfak/insta4.jpg" alt="@cevriyenin.mutfagi" />
+          <picture><source srcset="mutfak/insta4.webp" type="image/webp"><img src="mutfak/insta4.jpg" alt="@cevriyenin.mutfagi" ></picture>
         </div>
       </div>
       <div class="b-insta-dots" id="instaDots">
@@ -1206,7 +1222,7 @@
     </div>
 
     <div class="b-insta-cta reveal">
-      <a href="https://www.instagram.com/cevriyenin.mutfagi" target="_blank" class="b-btn-outline">
+      <a href="https://www.instagram.com/cevriyenin.mutfagi" target="_blank" class="b-btn-outline" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:18px;height:18px;">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
           <circle cx="12" cy="12" r="5"/>
@@ -1227,13 +1243,13 @@
       </p>
       <div class="b-contact-btns reveal">
         <a href="https://wa.me/905449319530?text=Merhaba,%20Bodrum%20Mandarin%20Kurusu%20hakkında%20bilgi%20almak%20istiyorum."
-           target="_blank" class="b-btn-whatsapp">
+           target="_blank" class="b-btn-whatsapp" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
           WhatsApp ile Sipariş
         </a>
-        <a href="https://www.instagram.com/cevriyenin.mutfagi" target="_blank" class="b-btn-insta">
+        <a href="https://www.instagram.com/cevriyenin.mutfagi" target="_blank" class="b-btn-insta" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
             <circle cx="12" cy="12" r="5"/>
@@ -1267,11 +1283,12 @@
 
     // Features mobil slideshow
     (function() {
-      function initSlideshow(slidesSelector, dotsSelector, interval) {
+      function initSlideshow(containerSelector, slidesSelector, dotsSelector, interval) {
+        const container = document.querySelector(containerSelector);
         const slides = document.querySelectorAll(slidesSelector);
         const dots   = document.querySelectorAll(dotsSelector);
         if (!slides.length) return;
-        let current = 0;
+        let current = 0, timer = null, paused = false;
         function goTo(n) {
           slides[current].classList.remove('active');
           dots[current].classList.remove('active');
@@ -1279,43 +1296,27 @@
           slides[current].classList.add('active');
           dots[current].classList.add('active');
         }
-        let timer = setInterval(() => goTo(current + 1), interval);
+        function start() { stop(); if (!paused) timer = setInterval(() => goTo(current + 1), interval); }
+        function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+        start();
         dots.forEach(dot => {
           dot.addEventListener('click', () => {
-            clearInterval(timer);
             goTo(+dot.dataset.index);
-            timer = setInterval(() => goTo(current + 1), interval);
+            start();
           });
         });
-      }
-      initSlideshow('.b-features-slide', '.b-features-dot', 2000);
-    })();
-
-    // Instagram mobil slideshow
-    (function() {
-      const slides = document.querySelectorAll('.b-insta-slide');
-      const dots   = document.querySelectorAll('.b-insta-dot');
-      let current  = 0;
-
-      function goTo(n) {
-        slides[current].classList.remove('active');
-        dots[current].classList.remove('active');
-        current = (n + slides.length) % slides.length;
-        slides[current].classList.add('active');
-        dots[current].classList.add('active');
-      }
-
-      // Otomatik geçiş — 2 saniye
-      let timer = setInterval(() => goTo(current + 1), 2000);
-
-      // Noktalara tıklama
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          clearInterval(timer);
-          goTo(+dot.dataset.index);
-          timer = setInterval(() => goTo(current + 1), 2000);
+        if (container) {
+          container.addEventListener('mouseenter', () => { paused = true; stop(); });
+          container.addEventListener('mouseleave', () => { paused = false; start(); });
+          container.addEventListener('focusin',    () => { paused = true; stop(); });
+          container.addEventListener('focusout',   () => { paused = false; start(); });
+        }
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) stop(); else start();
         });
-      });
+      }
+      initSlideshow('.b-features-slideshow', '.b-features-slide', '.b-features-dot', 4000);
+      initSlideshow('.b-insta-slideshow',    '.b-insta-slide',    '.b-insta-dot',    4000);
     })();
 
     // Scroll reveal
@@ -1330,5 +1331,7 @@
     }, { threshold: 0.12 });
     revealEls.forEach(el => observer.observe(el));
   </script>
+
+  <script src="js/i18n.js"></script>
 </body>
 </html>

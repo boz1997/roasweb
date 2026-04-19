@@ -163,3 +163,56 @@ section { padding: 120px 0; }
 .btn-dark:hover {
   background: var(--dark-mid);
 }
+
+/* ── Accessibility: keyboard focus ── */
+:focus:not(:focus-visible) { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── KVKK cookie consent banner ── */
+.cookie-consent {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  max-width: 640px;
+  width: calc(100% - 32px);
+  background: rgba(28, 26, 23, 0.96);
+  border: 1px solid rgba(184, 150, 110, 0.25);
+  color: var(--cream);
+  padding: 18px 22px;
+  border-radius: 4px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  z-index: 9999;
+  font-size: 13px;
+  line-height: 1.6;
+  backdrop-filter: blur(10px);
+}
+.cookie-consent[hidden] { display: none; }
+.cookie-consent p { margin: 0; color: var(--cream); }
+.cookie-consent a { color: var(--gold-light); text-decoration: underline; }
+.cookie-accept {
+  flex-shrink: 0;
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  padding: 10px 22px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.cookie-accept:hover { background: var(--gold-light); }
+@media (max-width: 560px) {
+  .cookie-consent { flex-direction: column; align-items: stretch; text-align: center; }
+}

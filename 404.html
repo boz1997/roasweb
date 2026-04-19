@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sayfa Bulunamadı – Roas Hotel</title>
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link rel="icon" type="image/png" href="logoroas.png" />
+  <link rel="apple-touch-icon" href="logoroas.png" />
+  <meta name="theme-color" content="#1c1a17" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/base.css" />
+
+  <style>
+    body { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; }
+    .err-wrap { max-width: 560px; }
+    .err-code { font-family: 'Cormorant Garamond', serif; font-size: clamp(96px, 18vw, 180px); font-weight: 300; line-height: 1; color: var(--gold-light); letter-spacing: -2px; }
+    .err-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 40px); font-weight: 300; color: var(--white); margin: 8px 0 16px; }
+    .err-text { color: var(--text-muted); font-size: 15px; line-height: 1.75; font-weight: 300; margin-bottom: 40px; }
+    .err-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .logo-top { position: absolute; top: 32px; left: 50%; transform: translateX(-50%); }
+    .logo-top img { height: 64px; }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="logo-top" aria-label="Roas Hotel"><img src="logoroas.png" alt="Roas Hotel" /></a>
+  <main class="err-wrap">
+    <div class="err-code">404</div>
+    <h1 class="err-title">Aradığınız sayfa bulunamadı</h1>
+    <p class="err-text">Aradığınız sayfa taşınmış, kaldırılmış ya da hiç var olmamış olabilir. Ana sayfaya dönerek devam edebilirsiniz.</p>
+    <div class="err-actions">
+      <a href="index.html" class="btn-primary">Ana Sayfa</a>
+      <a href="index.html#rooms" class="btn-outline">Odaları İncele</a>
+    </div>
+  </main>
+</body>
+</html>
